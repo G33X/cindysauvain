@@ -20,10 +20,10 @@ default: &default
 production: &production
   adapter: postgresql
   encoding: utf8
-  database: d508ga79o0p642
+  database: cindysauvain_pg
   username: <%= ENV['PG_SQL_PROD_USER'] %>
   password: <%= ENV['PG_SQL_PROD_PASS'] %>
-  host: ec2-107-22-253-198.compute-1.amazonaws.com
+  host: vps344707.ovh.net
   port: 5432
   pool: 5
   timeout: 5000
