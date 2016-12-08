@@ -63,11 +63,7 @@ class ApplicationController < ActionController::Base
 
     require 'socket'
 
-    if Socket.gethostname == 'iMac.local'
-	    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
-    else
-      response.headers['Last-Modified'] = ENV['HEROKU_RELEASE_CREATED_AT'].to_datetime.httpdate
-    end
+    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
 
     response.headers['Content-Security-Policy'] =
         "script-src 'self' https://ajax.googleapis.com " \
