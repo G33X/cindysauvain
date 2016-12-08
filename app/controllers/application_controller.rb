@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
 	    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
     else
       # TODO: Set the last deployment date
-      response.headers['Last-Modified'] = '2016-12-08 00:00:00'
+      response.headers['Last-Modified'] = 'Fri Dec 12 23:07:29 CEST 2016'
     end
 
     response.headers['Content-Security-Policy'] =
