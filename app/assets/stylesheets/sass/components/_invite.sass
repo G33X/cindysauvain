@@ -1,0 +1,87 @@
+.invite-form
+	width: 760px
+	margin: 20px auto
+	padding: 15px
+	float: none
+	background-color: $chocolate
+
+	+mq($small)
+		padding: 15px 0
+
+	+mq($tiny)
+		width: 100%
+		padding: 15px 0
+
+	h3
+		padding: 10px 0
+		font-family: Oswald, Helvetica, Arial, sans-serif
+		font-size: 3em
+		text-align: center
+		color: $white
+
+	.instructions
+		padding: 15px 0
+		text-align: center
+		font-size: 1.2em
+		color: $main-background-color
+
+	form
+		.row
+			+span(12)
+			padding-bottom: 5px
+
+			.text-field
+				+span(6)
+
+				+mq($tiny)
+					+span(12)
+
+				&.full
+					+span(12)
+
+				.g-recaptcha
+					> div
+						margin: auto
+
+				input, textarea
+					+span(12)
+					margin-bottom: 10px
+					padding: 5px
+					color: $black
+					font-family: Oswald, Helvetica, Arial, sans-serif
+					font-size: 1.7em
+					border: none
+
+		#invite-submit
+			display: block
+			+span(2)
+			margin: 0 auto
+			float: none
+			background-color: $white
+			font-family: Oswald, Helvetica, Arial, sans-serif
+			font-size: 1.5em
+			border: none
+			-webkit-appearance: none
+
+			+mq($tiny)
+				+span(3)
+				float: none
+
+	#invite-error,
+	#invite-message
+		margin: 0 auto 15px
+		padding-top: 5px
+		padding-bottom: 5px
+		text-align: center
+		opacity: 0
+		color: $red
+		background-color: $main-background-color
+		+transition(opacity 300ms)
+		&.active
+			opacity: 1
+
+::-moz-placeholder
+	color: $general-text-color
+
+::-webkit-input-placeholder
+	color: $general-text-color

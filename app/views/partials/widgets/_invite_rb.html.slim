@@ -1,0 +1,61 @@
+button#invite-btn Invite Cindy
+
+.invite-form.mfp-hide.zoom-anim-dialog
+	h3 Invite Cindy
+	p.instructions To invite Cindy in your church, please fill the form below.
+	= form_for @invite do |f|
+
+		.row
+			.text-field.full
+				/for="name" Organization name"
+				= f.text_field :name, placeholder: "Organization name"
+
+		.row
+			.text-field.full
+				/for="name" Leader"
+				= f.text_field :leader, placeholder: "Leader"
+
+		.row
+			.text-field
+				/for="name" Email"
+				= f.text_field :email, placeholder: "Email"
+
+			.text-field
+				/for="name" Phone"
+				= f.text_field :phone, placeholder: "Phone"
+
+		.row
+			.text-field
+				/for="name" Contact"
+				= f.text_field :contact, placeholder: "Contact"
+
+			.text-field
+				/for="name" Address (address zip city-state country)"
+				= f.text_field :address, placeholder: "Address (address zip city-state country)"
+
+		.row
+			.text-field
+				/for="name" Requested dates doodle"
+				= f.text_field :requested_dates, placeholder: "Requested dates doodle"
+
+			.text-field
+				/for="name" Expected no of attendees"
+				= f.text_field :expected_attendees, placeholder: "Expected no of attendees"
+
+		.row
+			.text-field.full
+				/for="name" Other speaker ? Who ?"
+				= f.text_field :other_speaker, placeholder: "Other speaker ? Who ?"
+
+		.row
+			.text-field.full
+				/for="name" How did you know Cindy ?"
+				= f.textarea :knowing_cindy, placeholder:"How did you know Cindy ?", cols: "20", rows: "10"
+
+		.row
+			.text-field.full
+				= f.submit "Send", id: "invite_submit"
+
+		.clearfix
+
+	.clearfix

@@ -1,0 +1,106 @@
+article.medias
+	display: table
+	+span(12 no-gutters)
+	margin-bottom: 35px
+
+	+mq($small)
+		margin-bottom: 20px
+
+	header
+		display: table-cell
+		vertical-align: top
+		background-color: $main-background-color
+
+		time
+			display: table-cell
+			min-width: 77px
+			padding: 22px
+			position: relative
+			color: $general-text-color
+			font-family: Oswald, Helvetica, Arial, sans-serif
+			font-weight: 100
+			font-size: 1.3em
+			text-align: center
+
+			+mq($small)
+				min-width: 48px
+				padding: 18px
+
+			+mq($tiny)
+				padding: 10px
+
+			span
+				display: inline-block
+				margin-bottom: 8px
+				font-size: 2.5em
+
+				+mq($small)
+					margin-bottom: 6px
+
+				&.year
+					margin-top: 15px
+					font-size: 1.5em
+
+			&:after
+				content: ""
+				width: 110px
+				margin-left: -55px
+				border-bottom: 1px solid $border-box-color
+				position: absolute
+				bottom: 0
+				left: 50%
+
+				+mq($small)
+					width: 78px
+					margin-left: -39px
+
+				+mq($small)
+					width: 60px
+					margin-left: -30px
+
+		.likes
+			display: table-row
+			width: 100%
+			text-align: center
+			span
+				display: inline-block
+				padding: 30px 0
+				color: $red
+				font-family: Oswald, Helvetica, Arial, sans-serif
+				font-weight: 100
+				font-size: 2.75em
+				text-align: center
+
+				+mq($small)
+					padding: 24px 0
+
+				+mq($tiny)
+					padding: 12px 0
+
+				&:before
+					content: "\2665"
+					display: block
+					font-family: serif
+					font-size: 1.25em
+
+	.picture-frame
+		padding: 4px
+		border: 1px solid $border-box-color
+
+		+mq($small)
+			padding: 3px
+
+		img.instapic
+			display: table-cell
+			width: 100%
+			height: auto
+
+	.description
+		+span(12)
+		padding: 10px 0
+		p
+			color: $chocolate
+			font-weight: 100
+			font-style: italic
+			font-size: 1em
+			line-height: 1.3em

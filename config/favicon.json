@@ -1,0 +1,58 @@
+
+{
+  "master_picture": "TODO: Path to your master picture",
+  "favicon_design": {
+	"ios": {
+	  "picture_aspect": "background_and_margin",
+	  "background_color": "#ffffff",
+	  "margin": "7%",
+	  "assets": {
+		"ios6_and_prior_icons": true,
+		"ios7_and_later_icons": true,
+		"precomposed_icons": true,
+		"declare_only_default_icon": true
+	  }
+	},
+	"desktop_browser": [
+
+	],
+	"windows": {
+	  "picture_aspect": "no_change",
+	  "background_color": "#e3000f",
+	  "on_conflict": "override",
+	  "assets": {
+		"windows_80_ie_10_tile": true,
+		"windows_10_ie_11_edge_tiles": {
+		  "small": true,
+		  "medium": true,
+		  "big": true,
+		  "rectangle": true
+		}
+	  }
+	},
+	"android_chrome": {
+	  "picture_aspect": "shadow",
+	  "theme_color": "#ffffff",
+	  "manifest": {
+		"name": "Cindy Sauvain",
+		"display": "standalone",
+		"orientation": "not_set",
+		"on_conflict": "override",
+		"declared": true
+	  },
+	  "assets": {
+		"legacy_icon": false,
+		"low_resolution_icons": false
+	  }
+	},
+	"safari_pinned_tab": {
+	  "picture_aspect": "black_and_white",
+	  "threshold": 51.25,
+	  "theme_color": "#e3000f"
+	}
+  },
+  "settings": {
+	"scaling_algorithm": "Mitchell",
+	"error_on_image_too_small": false
+  }
+}

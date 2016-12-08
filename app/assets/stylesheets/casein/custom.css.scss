@@ -1,0 +1,67 @@
+/* CASEIN CUSTOM */
+/* Use this file for your project-specific Casein CSS */
+
+table {
+  tr {
+	&.hidden-news {
+	  opacity: .5;
+	}
+  }
+}
+
+$width: 56px;
+$height: 34px;
+
+.onoffswitch {
+  position: relative;
+  width: $width;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  .onoffswitch-label {
+	display: block;
+	width: $width;
+	height: $height;
+	overflow: hidden;
+	cursor: pointer;
+	padding: 0;
+	line-height: $height;
+	border: 2px solid #CCCCCC;
+	border-radius: $height;
+	background-color: #FFFFFF;
+	transition: background-color 0.3s ease-in;
+
+	&:before {
+	  content: "";
+	  display: block;
+	  width: $height;
+	  margin: 0px;
+	  background: #FFFFFF;
+	  position: absolute;
+	  top: 0;
+	  bottom: 0;
+	  right: 22px;
+	  border: 2px solid #CCCCCC;
+	  border-radius: $height;
+	  transition: all 0.3s ease-in 0s;
+	}
+  }
+
+  .onoffswitch-checkbox {
+	display: none;
+
+	&:checked {
+	  + .onoffswitch-label {
+		background-color: #E3000F;
+	  }
+	  + .onoffswitch-label,
+	  + .onoffswitch-label:before {
+		border-color: #E3000F;
+	  }
+	  + .onoffswitch-label:before {
+		right: 0px;
+	  }
+	}
+  }
+}

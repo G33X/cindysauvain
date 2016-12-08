@@ -1,0 +1,166 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  meta_desc:
+    home: Dernières nouvelles de Cindy Sauvain
+    about: Témoignage de Cindy Sauvain
+    agenda: Agenda de Cindy Sauvain
+    testimonials: Témoignages du ministère de Cindy Sauvain
+    medias: Photos sélectionnées par Cindy Sauvain provenant d'Instagram
+    donate: Détails concernant les moyens de soutenir Cindy Sauvain
+    links: Liens apparentés au ministère de Cindy Sauvain
+
+  noscript: Veuillez activer Javascript pour une meilleure expérience
+
+  routes:
+    home: accueil
+    about: a-propos
+    agenda: agenda
+    medias: medias
+    testimonials: temoignages
+    donate: soutenir-cindy
+    links: liens
+
+  date:
+    day_names: [ Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi ]
+    month_names: [ ~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre ]
+    abbr_month_names: [ ~, Jan, Fév, Mar, Avr, Mai, Jun, Jul, Aoû, Sep, Oct, Nov, Déc ]
+
+  header:
+    slides:
+      one: Cindy Sauvain - Visage
+      two: Cindy Sauvain - Sourire
+      three: Cindy Sauvain - Prèche à Tijuana
+      four: Cindy Sauvain - Au stade
+    verse: Ton Règne vienne, ta volonté soit faite sur la terre comme au ciel.
+    ref: Matthieu 6:10
+
+  menu:
+    home: Accueil
+    about: A propos
+    agenda: Agenda
+    testimonials: Témoignages
+    medias: Médias
+    donate: Soutenir Cindy
+    links: Liens
+
+  tagline:
+    title:
+      first: Equiper
+      second: Encourager
+      third: Construire
+    text: Cindy équipe, encourage et amène le feu pour l'évangelisation prophétique, la guérison et les miracles.
+      Elle désire communiquer l'importance de l'intimité avec Dieu.
+
+  aside_widget_title: &widgets
+    last_news: <span>Dernières</span> news
+    next_events: <span>Prochains</span> événements
+    last_testimonials: <span>Derniers</span> témoignages
+
+  news:
+    share: Partagez l'article
+    read_more: Lire la suite
+
+  invite:
+    lb_button: Inviter Cindy
+    instructions: Pour inviter Cindy, veuillez remplir le formulaire ci-dessous.
+    name: Nom de l'organisation
+    leader: Leader
+    email: Email
+    phone: Téléphone
+    address: Adresse
+    location: NPA Ville - Pays
+    requested_dates: Dates souhaitées
+    expected_attendees: Nombre de personnes attendues
+    other_speaker: Autre orateur ? Qui ?
+    cindy_help: Comment Cindy peut vous aider ?
+    submit: Envoyer
+    status:
+      invite_delivered: Merci pour votre invitation !
+      delivery_error: Oups ! Une erreur est survenue à l'envoi du formulaire. Désolé pour cette inconvenance.
+      field_error: Veuillez contrôler que vous avez rempli tous les champs correctement.
+      email_error: Veuillez saisir une adresse email valide
+      recaptcha_error: Veuillez confirmer que vous n'êtes pas un robot
+
+  about:
+    first_p: Cindy Sauvain vient de Suisse, et à l'âge de 18 ans, elle a été radicalement sauvée et a reçu l'appel de Dieu d'aller
+      et prêcher l'évangile dans les nations. Depuis sa conversion, elle a voyagé dans les 5 continents, acompagnée de
+      signes, miracles et prodiges. Après un an de plein temps dans le ministère, Cindy vient de finir ses trois ans à
+      l'ecole de Bethel en Californie, où elle a eu le privilege de se former avec le pasteur Bill Johnson, Chris Vallotton
+      ainsi que plein d'autres.
+
+    second_p: Elle voyage en Europe et autour du monde pour équiper les églises et voir le Ciel envahir la terre et le
+      Royaume de Dieu prendre place. Elle croit et vit de manière puissante l'évangelisation, la prophétie et la guérison.
+      Cindy aime amener les gens dans le style de vie du surnaturel.
+      Elle a la passion de voir les gens rentrer dans leur destinée et comprendre leur identité en tant que fille et fils
+      de Dieu. Le fruit de son ministère vient de l'intimité avec Dieu et elle aime l'amener au Corps de Christ.
+
+  agenda:
+    button_archive: Voir les événements passés
+    location: Lieu
+    informations: Informations
+    with: Avec
+    website: Plus d'infos sur
+    and: et
+    no_event: Désolé ! Il n'y a pas d'événement à afficher pour le moment. :-(
+
+  donate:
+    title: Soutenir Cindy
+    bank: Par virement bancaire
+    address: Adresse
+    paypal: Par Paypal
+    currency: Choisissez votre devise
+    swiss_francs: Francs suisses
+    more: et autres
+    tip:
+      chf: Possibilité de faire un don en CHF depuis un compte PayPal ou par carte de crédit
+      other: Pour donner dans d'autres devises, un compte Paypal est requis
+    popup:
+      cancel: Annuler
+      ok: OK
+    first_text: Sans vous, rien n'est possible ! Joignez vous à moi pour voir le Ciel venir sur terre.
+    second_text: Paul, dans Philippiens 4:15-20, dit clairement que sa mission a été rendue possible grâce au soutien des
+      Philippiens. C'est grâce à ce partenariat que l'évangile a été annoncé. Devenez ainsi partenaire en permettant au
+      surnaturel de Dieu d'intervenir et ayez donc part à chaque guérison, à chaque délivrance et à chaque personne amenée
+      au salut. Votre don, votre soutien fera de vous un partenaire à part entière. Encore merci !
+
+
+  links:
+    visit: Visiter
+
+
+  footer_widget_title:
+    <<: *widgets
+
+  footer:
+    contact: Contact
+    country: Suisse
+    goody: Goody
+    email:
+      cindy: Email de Cindy
+      subject: Contact à partir du site de Cindy Sauvain
+    credits:
+      one: Site web fait avec
+      two: par
+      three: pour le graphisme
+      four: et
+      five: pour le développement web

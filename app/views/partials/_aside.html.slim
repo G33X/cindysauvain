@@ -1,0 +1,13 @@
+
+section.tagline
+	= render partial: 'partials/widgets/tagline'
+	/if params[:controller] == 'home'
+
+section.widget
+	h3 #{@aside_widget[0]}
+
+	hr
+
+	= render 'partials/widgets/' + @aside_widget[1]
+
+= render 'invites/index'

@@ -1,0 +1,165 @@
+#about
+	.portrait-frame
+		width: auto
+		margin-right: 5px
+		margin-left: 12px
+		padding: 5px 5px 3px 5px
+		background-color: $main-background-color
+		border: 1px solid $border-box-color
+		float: right
+
+		+mq($medium)
+			width: 38%
+
+		.portrait
+			+mq($small)
+				max-width: 100%
+				height: auto
+
+
+	blockquote
+		p
+			position: relative
+			padding-left: 12px
+			margin-bottom: 20px
+			color: $general-text-color
+			font-size: 1em
+			text-align: justify
+			line-height: 1.5em
+			font-weight: 300
+			font-style: italic
+
+		+mq($small)
+			margin-bottom: 10px
+			padding-left: 8px
+
+		&.first:before
+			content: ""
+			border-left: 3px solid $red
+			display: block
+			height: 52px
+			position: absolute
+			left: 0
+
+			+mq($small)
+				border-width: 2px
+				height: 38px
+
+	section.video
+		iframe
+			+span(12 no-gutters)
+			max-width: 100%
+			height: 433px
+			margin: 60px auto 0
+
+			+mq($medium)
+				height: 371px
+
+			+mq($small)
+				height: 280px
+
+			+mq($tiny)
+				height: 55vw
+
+
+.about-medias
+	padding: 20px
+	border: 1px solid $border-box-color
+
+	.media
+		padding: 0 0 10px
+		cursor: pointer
+		&:hover
+			.description p a
+				color: $red
+
+		.icon
+			display: inline-table
+			vertical-align: middle
+			width: 64px
+			height: 64px
+			background-size: 100%
+
+			+mq($small)
+				width: 55px
+				height: 55px
+
+			&.audio
+				background-image: image-url("audio.png")
+
+			&.video
+				background-image: image-url("video.png")
+
+			&.pdf
+				background-image: image-url("pdf.png")
+
+		.description
+			width: 73%
+			display: inline-table
+			vertical-align: middle
+			padding: 0 10px
+
+			+mq($medium)
+				width: 68%
+
+			+mq($small)
+				width: 59%
+
+			p
+				a
+					color: $general-text-color
+					text-decoration: none
+					outline: none
+					+transition(color $transition-time ease)
+
+.video-popup,
+.pdf-popup,
+.audio-popup
+	max-width: 100%
+	position: relative
+	margin: 0 auto
+	background-color: $white
+	border: 1px solid $border-box-color
+	h3
+		padding: 15px
+		font-family: Oswald, Helvetica, Arial, sans-serif
+		font-size: 1.4em
+		color: $red
+
+.video-popup
+	width: 771px
+	iframe
+		max-width: 100%
+		margin-bottom: -2px
+
+.pdf-popup
+	width: 803px
+	iframe
+		width: 99.9%
+		height: 85.5vh
+		max-width: 100%
+		overflow-y: hidden
+
+.audio-popup
+	width: 300px
+	border-bottom-left-radius: 7px
+	border-bottom-right-radius: 7px
+	audio
+		max-width: 100%
+		margin-bottom: -2px
+
+
+.mfp-close-btn-in .mfp-close
+	padding: 5px
+	color: $red
+	opacity: 1
+	&.mfp-close:focus,
+	&.mfp-close:hover
+		color: $link-hover-color
+	&.mfp-close:active
+		top: 0
+
+.my-mfp-slide-bottom.mfp-ready.mfp-bg
+	background: $white
+	opacity: .92
+	overflow: hidden

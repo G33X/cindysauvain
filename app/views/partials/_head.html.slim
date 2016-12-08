@@ -1,0 +1,61 @@
+head
+	meta charset="utf-8"
+	meta http-equiv="X-UA-Compatible" content="IE=edge"
+	meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"
+
+	title #{t @page_title unless @page_title.nil?} - Cindy Sauvain
+
+	link href="https://www.cindysauvain.com/" rel="canonical"
+	/link rel="alternate" hreflang="x-default" href="http://cindysauvain.com#{request.fullpath}/"
+
+
+	/html xmlns:og="http://ogp.me/ns#"
+	/meta property="og:locale" content="en_US"
+	/meta property="og:type" content="website"
+	/meta property="og:title" content="#{t 'meta_desc.home'}"
+	/meta property="og:url" content="http://cindysauvain.com/"
+	/meta property="og:site_name" content="Cindy Sauvain"
+	/meta property="fb:app_id" content="1087950351220080"
+	/meta property="og:image" content="https://i.vimeocdn.com/video/528414916_640.jpg"
+	/meta name="twitter:card" content="summary_large_image"
+	/meta name="twitter:title" content="#{t 'meta_desc.home'}"
+	/meta name="twitter:site" content="@Cindyonfire1"
+	/meta name="twitter:domain" content="Yoast"
+	/meta name="twitter:image:src" content="https://i.vimeocdn.com/video/528414916_640.jpg"
+	/meta name="twitter:creator" content="@Cindyonfire1"
+
+	/a rel="nofollow"
+
+	= render 'application/favicon'
+
+	- if controller_name == 'home'
+		= meta_desc_tag 'meta_desc.home'
+		= json_ld_tag 'home' if action_name == 'index'
+	- if controller_name == 'about'
+		= meta_desc_tag 'meta_desc.about'
+		= json_ld_tag 'about'
+	- if controller_name == 'agenda'
+		= meta_desc_tag 'meta_desc.agenda'
+		= json_ld_tag 'agenda'
+	- if controller_name == 'testimonials'
+		= meta_desc_tag 'meta_desc.testimonials'
+		= json_ld_tag 'testimonials'
+	- if controller_name == 'medias'
+		= meta_desc_tag 'meta_desc.medias'
+		= json_ld_tag 'medias'
+	- if controller_name == 'donate'
+		= meta_desc_tag 'meta_desc.donate'
+		= json_ld_tag 'donate'
+	- if controller_name == 'links'
+		= meta_desc_tag 'meta_desc.links'
+		= json_ld_tag 'links'
+	= json_ld_tag 'info'
+	= json_ld_tag 'website'
+
+
+	= stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic|Oswald:400,300,700', media: 'all'
+
+	/link href="/assets/magnific-popup/magnific-popup-9d2b809dc03662430f50283b53b1e08f39d75e23e7017d71f0390ef930d600b3.css" rel="stylesheet"
+	/link href="/assets/main.css" rel="stylesheet"
+	= stylesheet_link_tag 'application', media: 'all'
+	/ --->> Main.sass susy + bourbon <<---

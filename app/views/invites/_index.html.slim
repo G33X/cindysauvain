@@ -1,0 +1,72 @@
+button#invite-btn #{I18n.t "invite.lb_button"}
+
+.invite-form.mfp-hide.zoom-anim-dialog
+	h3 #{I18n.t "invite.lb_button"}
+	p.instructions #{I18n.t "invite.instructions"}
+
+	= form_for @invite do |f|
+		- if @invite.errors.any?
+			#error_explanation
+				h2 #{pluralize @invite.errors.count, "error"} prohibited this message from being sent:
+				ul
+					- for msg in @invite.errors.full_messages do
+						li #{msg}
+
+		.row
+			.text-field.full
+				= f.text_field :name, placeholder: I18n.t("invite.name"), required: :required
+
+		.row
+			.text-field.full
+				= f.text_field :leader, placeholder: I18n.t("invite.leader"), required: :required
+
+		.row
+			.text-field
+				= f.email_field :email, placeholder: I18n.t("invite.email"), id: "email-field", required: :required
+				= f.hidden_field :email_validation, id: "email-validation"
+
+			.text-field
+				= f.phone_field :phone, placeholder: I18n.t("invite.phone")
+
+		.row
+			.text-field
+				= f.text_field :address, placeholder: I18n.t("invite.address"), required: :required
+
+			.text-field
+				= f.text_field :location, placeholder: I18n.t("invite.location"), required: :required
+
+		.row
+			.text-field
+				= f.text_field :requested_dates, placeholder: I18n.t("invite.requested_dates"), required: :required
+
+			.text-field
+				= f.text_field :expected_attendees, placeholder: I18n.t("invite.expected_attendees"), required: :required
+
+		.row
+			.text-field.full
+				= f.text_field :other_speaker, placeholder: I18n.t("invite.other_speaker")
+
+		.row
+			.text-field.full
+				= f.text_area :cindy_help, placeholder: I18n.t("invite.cindy_help"), size: "20x10", required: :required
+
+		.row
+			.text-field.full
+				.g-recaptcha id="g-recaptcha" data-sitekey="6LeEFQ4TAAAAADFshEuTLIrFa2hi0v_kuInjsag3"
+
+		.row
+			.text-field.full
+				h4#invite-error
+
+		.row
+			.text-field.full
+				= f.submit id: "invite-submit", value: I18n.t("invite.submit")
+
+		.clearfix
+
+	.row
+		.text-field.full
+			h4#invite-message
+
+	.clearfix
+

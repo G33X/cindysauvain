@@ -1,0 +1,161 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  meta_desc:
+    home: Last news about Cindy Sauvain
+    about: Testimonial of Cindy Sauvain
+    agenda: Itinerary (agenda) of Cindy Sauvain
+    testimonials: Testimonials from the Cindy Sauvain's ministry
+    medias: Photos selected by Cindy Sauvain comming from Instagram
+    donate: Details about the ways to support Cindy Sauvain
+    links: Links relative to Cindy Sauvain's ministry
+
+  noscript: Please activate Javascript for a better experience
+
+  routes:
+    home: home
+    about: about
+    agenda: itinerary
+    medias: medias
+    testimonials: miracles
+    donate: donate
+    links: links
+
+  header:
+    slides:
+      one: Cindy Sauvain - Face
+      two: Cindy Sauvain - Smile
+      three: Cindy Sauvain - Preaching in Tijuana
+      four: Cindy Sauvain - At the stadium
+    verse: Your kingdom come, your will be done, on earth as it is in heaven.
+    ref: Matthew 6:10
+
+  menu:
+    home: Home
+    about: About
+    agenda: Itinerary
+    testimonials: Miracles
+    medias: Medias
+    donate: Donate
+    links: Links
+
+  tagline:
+    title:
+      first: Equip
+      second: Encourage
+      third: Build
+    text:
+      Cindy equips, empowers and brings fire for the prophetic evangelism healing, miracles and outreach crusade
+      and brings the intimacy with the Lord.
+
+  aside_widget_title: &widgets
+    last_news: <span>Last</span> news
+    next_events: <span>Next</span> events
+    last_testimonials: <span>Last</span> testimonials
+
+  news:
+    share: Share this article
+    read_more: Read more
+
+  invite:
+    lb_button: Invite Cindy
+    instructions: To invite Cindy in your church, please fill the form below.
+    name: Organization name
+    leader: Leader
+    email: Email
+    phone: Phone
+    address: Address
+    location: ZIP City - Country
+    requested_dates: Requested dates
+    expected_attendees: Expected no of attendees
+    other_speaker: Other speaker ? Who ?
+    cindy_help: How can Cindy help you ?
+    submit: Submit
+    status:
+      invite_delivered: Thank you for your invite !
+      delivery_error: Oops ! An error occurred when the form was submitting. Sorry for the inconvenience.
+      field_error: Please check that you filled all the fields correctly.
+      email_error: Please provide a valid email address
+      recaptcha_error: Please confirm that you are not a bot
+
+  about:
+    first_p:
+      Cindy Sauvain is from Switzerland and, at the age of 18, she got radically saved and received a call from the Lord to go
+      and preach the gospel to the nations. Since her conversion, she has travelled across four continents preaching the gospel
+      with signs, miracles and wonders following. After one year in full time ministry, Cindy has completed three years at the
+      Bethel School of Supernatural Ministry in Redding California. She had the privilege of learning from the pastor Bill Johnson,
+      Kris Vallotton and many others.
+
+    second_p:
+      She is travelling in Europe and around the world to equip churches to see heaven invading earth and see the Kingdom of God
+      taking place. She moves powerfully in evangelism, prophecy and healing. She loves to lead people into a supernatural lifestyle.
+      Cindy has a passion to see people fulfilling their destiny and understanding their identity as sons and daughters of God.
+      Her ministry flows from intimacy with the Lord and she loves to impart this to the Body of Christ.
+
+  agenda:
+    button_archive: See past events
+    location: Location
+    informations: Informations
+    with: With
+    website: More info on
+    and: and
+    no_event: Sorry ! There is no event to show at this time. :-(
+
+  donate:
+    title: Donate
+    bank: By bank transfer
+    address: Address
+    paypal: By PayPal
+    currency: Choose your currency
+    swiss_francs: Swiss francs
+    more: and more
+    tip:
+      chf: It's possible to donate in CHF with a PayPal account or a credit card
+      other: To donate in other currencies, it's required to have a PayPal account
+    popup:
+      cancel: Cancel
+      ok: OK
+    first_text: Without you, nothing is possible ! Please, join me to see the Heaven come to earth.
+    second_text: Paul, in Philippians 4:15-20, says clearly that his mission was made possible through the support of
+      Philippians. It is through this partnership that the Gospel was announced. Become a partner allowing the supernatural
+      of God to intervene and so have participation in each healing, each deliverance, and each person brought to salvation.
+      Your gift, your support will make you a full partner. Thanks again !
+
+  links:
+    visit: Visit
+
+  footer_widget_title:
+    <<: *widgets
+
+  footer:
+    contact: Contact
+    country: Switzerland
+    goody: Goody
+    email:
+      cindy: Email de Cindy
+      subject: Contact Cindy Sauvain's website
+    credits:
+      one: Website made with
+      two: by
+      three: for the design
+      four: and
+      five: for the web development

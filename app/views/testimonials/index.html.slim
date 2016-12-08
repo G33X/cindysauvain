@@ -1,0 +1,28 @@
+= render 'partials/header'
+
+.container
+	= render 'partials/menu'
+
+	section#main role="main"
+
+		- for res in @testimonials do
+
+			article.testimonials id="#{res.id}"
+				header
+					p #{res.name}
+
+				.testimonial
+					.portrait-frame class="#{image_pos res, 'image'}"
+						= image_tag res.image, alt: res.name, title: res.name, class: "portrait lazy", width: 250, height: 250, lazy: true
+
+					blockquote class="#{image_pos res, 'text'}"
+						p
+							| #{res.text.html_safe if I18n.locale == :en}
+							| #{res.text_fr.html_safe if I18n.locale == :fr}
+
+					.clearfix
+
+	aside
+		= render 'partials/aside'
+
+= render 'partials/footer'

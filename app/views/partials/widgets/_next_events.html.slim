@@ -1,0 +1,36 @@
+- if @widget_events.count > 0
+	- for res in @widget_events do
+		= date_format res, true
+
+		= link_to "#{agenda_index_path}/#event-#{res.id}", class: "event"
+
+			- unless res.date_from == '2015-01-01 00:00:00 UTC'.to_datetime
+				.moment
+					.month #{@date_from_month}
+					.day #{@date_from_day}
+					/.time
+						- if I18n.locale == :en
+							| #{@date_from_hours_en}:#{@date_from_minutes} #{@date_from_us_time}
+						- if I18n.locale == :fr
+							| #{@date_from_hours_fr}:#{@date_from_minutes}
+				span -
+
+			.moment
+				.month #{@date_month}
+				.day #{@date_day}
+				/.time
+					- if I18n.locale == :en
+						| #{@date_hours_en}:#{@date_minutes} #{@date_us_time}
+					- if I18n.locale == :fr
+						| #{@date_hours_fr}:#{@date_minutes}
+
+			.description
+				h4
+					| #{res.title if I18n.locale == :en}
+					| #{res.title_fr if I18n.locale == :fr}
+				.location #{res.city}
+
+- else
+
+	.event
+		span.no-event #{I18n.t "agenda.no_event"}

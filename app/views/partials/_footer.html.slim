@@ -1,0 +1,65 @@
+footer
+
+	.container
+		section.widget
+			h3 #{@footer_widget[0]}
+
+			= render "partials/widgets/#{@footer_widget[1]}"
+
+			hr
+
+		section#contact
+			h3 #{I18n.t "footer.contact"}
+
+			address.post
+				p.name Cindy Sauvain
+				p.address Chemin du Champ-des-Pierres 20
+				p.location 1052 Le Mont-sur-Lausanne
+				p.country #{t 'footer.country'}
+
+			address.coords
+				p.phone
+					span Tel:
+					| +4179 657 42 78
+				p.email
+					span Email:
+					= mail_to "cindy.sauvain@gmail.com", t("footer.email.cindy"), subject: t('footer.email.subject'), encode: :hex
+				p.twitter
+					span Twitter:
+					| @Cindyonfire1
+				p.facebook
+					span Facebook:
+					| Cindy Sauvain
+				p.instagram
+					span Instagram:
+					| cindysauvain
+
+			hr
+
+		section#goody
+			h3 #{I18n.t "footer.goody"}
+			= render 'partials/widgets/footer_video'
+
+		/section#popular-photos
+		/	h3 #{I18n.t 'footer.most_liked_photos'}
+		/
+		/	.photos
+
+
+	section#footer
+		.container
+			.logo
+			.made-by
+				| #{I18n.t "footer.credits.one"} &nbsp;
+				span &nbsp;&#9825;
+				br
+				| &nbsp; #{I18n.t "footer.credits.two"} &nbsp;
+				= mail_to "marynepechin@gmail.com", "Maryne Roye", subject: t('footer.email.subject'), encode: :hex
+				| &nbsp; #{I18n.t "footer.credits.three"} <br>  #{I18n.t "footer.credits.four"} &nbsp;
+				= mail_to "geex@myself.com", "Guillaume Suard", subject: t('footer.email.subject'), encode: :hex
+				| &nbsp; #{I18n.t "footer.credits.five"}
+
+			.social-icons
+				= link_to "", @fb_link, class: "fb", target: "_blank", rel: "nofollow"
+				= link_to "", @tw_link, class: "tw", target: "_blank", rel: "nofollow"
+				= link_to "", @insta_link, class: "insta", target: "_blank", rel: "nofollow"

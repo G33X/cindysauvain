@@ -1,0 +1,90 @@
+article.testimonials
+	+span(12 no-gutters)
+	margin-bottom: 20px
+
+	+mq($small)
+		margin-bottom: 12px
+
+	header
+		padding: 20px 0
+		background-color: $main-background-color
+
+		+mq($small)
+			padding: 15px 0
+
+		+mq($tiny)
+			padding-left: 12px
+
+		p
+			color: $chocolate
+			font-family: Oswald, Helvetica, Arial, sans-serif
+			font-weight: 100
+			font-size: 1.7em
+			text-align: left
+
+	.testimonial
+		.portrait-frame
+			width: auto
+			margin-right: 5px
+			margin-left: 12px
+			padding: 5px 5px 3px 5px
+			background-color: $white
+			border: 1px solid $border-box-color
+			&.hidden
+				display: none
+			&.left
+				float: left
+			&.right
+				float: right
+
+			img
+				height: auto
+
+				+mq($medium)
+					width: 210px
+
+				+mq($small)
+					width: 160px
+
+				+mq($tiny)
+					width: 100%
+
+		blockquote
+			width: 60%
+			position: relative
+			padding-left: 12px
+			color: $general-text-color
+			text-align: justify
+			font-size: 1em
+			line-height: 1.5em
+			font-weight: 300
+			font-style: italic
+			&.wide
+				width: 100%
+			&.left
+				float: left
+			&.right
+				float: right
+
+			+mq($small)
+				width: auto
+				margin: 12px 12px 0 12px
+				padding-left: 8px
+
+			&:before
+				content: ""
+				height: 52px
+				border-left: 3px solid $chocolate
+				display: block
+				position: absolute
+				left: 0
+
+				+mq($small)
+					height: 38px
+					border-width: 2px
+
+			p
+				margin-bottom: 1em
+
+				+mq($small)
+					//width: 100%

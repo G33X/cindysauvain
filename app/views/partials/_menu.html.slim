@@ -1,0 +1,28 @@
+nav
+	#menu-btn
+		span
+		span
+		span
+
+	ul.menu.zoom-anim-dialog
+		= nav_link I18n.t('menu.home'), home_index_path
+
+		= nav_link I18n.t('menu.about'), about_index_path
+
+		= nav_link I18n.t('menu.agenda'), agenda_index_path
+
+		= nav_link I18n.t('menu.testimonials'), testimonials_path
+
+		= nav_link I18n.t('menu.medias'), medias_path
+
+		= nav_link I18n.t('menu.donate'), donate_index_path
+
+		= nav_link I18n.t('menu.links'), links_path
+
+	ul.language
+		li class="#{'active' if I18n.locale == :en}"
+			= link_to 'EN', locale: 'en'
+		li class="#{'active' if I18n.locale == :fr}"
+			= link_to 'FR', locale: 'fr'
+
+	.clearfix

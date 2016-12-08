@@ -1,0 +1,263 @@
+h2.year
+	margin-bottom: 25px
+	font-size: 2.5em
+	font-family: Oswald, Helvetica, Arial, sans-serif
+	color: $chocolate
+
+	+mq($small)
+		//padding: 18px
+
+	+mq($tiny)
+		//padding: 8px
+
+
+article.news
+	+span(12 no-gutters)
+	margin-bottom: 60px
+
+	+mq($tiny)
+		margin-bottom: 40px
+
+	header
+		position: relative
+		z-index: 4
+
+		time
+			display: inline
+			padding: 22px
+			background-color: $black
+			float: left
+			color: $white
+			font-family: Oswald, Helvetica, Arial, sans-serif
+			font-weight: 100
+			font-size: 1.3em
+			text-align: center
+
+			+mq($small)
+				padding: 18px
+
+			+mq($tiny)
+				padding: 8px
+
+			.day
+				font-size: 2.5em
+				margin-right: 10px
+				line-height: .99em
+
+			.month
+				display: inline-block
+				text-align: left
+				line-height: 1.2em
+
+		h2
+			display: inline
+			padding: 50px 15px 25px
+			background-color: $chocolate
+			float: left
+			color: $white
+			font-family: Oswald, Helvetica, Arial, sans-serif
+			font-weight: 100
+			font-size: 1.3em
+			text-align: center
+
+			+mq($small)
+				padding: 41px 10px 20px
+
+			+mq($tiny)
+				padding: 31px 8px 10px
+
+			&:first-letter
+				text-transform: uppercase
+
+	section.video
+		+span(12 no-gutters)
+		margin-top: -48px
+
+		+mq($tiny)
+			margin-top: -28px
+
+		iframe
+			+span(12 no-gutters)
+			max-width: 100%
+			height: 433px
+
+			+mq($medium)
+				height: 371px
+
+			+mq($small)
+				height: 36vw
+
+			+mq($tiny)
+				height: 55vw
+
+	//section.info
+		+span(12)
+		padding: 20px 0
+
+		.author
+			+span(2 no-gutters)
+			color: $general-text-color
+			font-size: .9em
+			position: relative
+			left: 25px
+			top: 7px
+
+			&:before
+				content: image-url("post-author.png")
+				position: absolute
+				left: -23px
+				top: -3px
+
+		.likes
+			+span(2 no-gutters)
+			color: $general-text-color
+			font-size: .9em
+			position: relative
+			left: 25px
+			top: 7px
+
+			&:before
+				content: image-url("likes-count.png")
+				margin-right: 5px
+				position: absolute
+				left: -23px
+				top: -3px
+
+	hr
+		+span(12 no-gutters)
+		display: block
+		height: 1px
+		margin: 0 0 30px
+		border: 0
+		border-top: 1px solid $border-box-color
+
+		+mq($tiny)
+			margin: 0 0 15px
+
+	section.text
+		+span(12)
+		display: table
+
+		p
+			+span(7)
+			display: inline-block
+
+			vertical-align: top
+			color: $general-text-color
+			font-weight: 100
+			line-height: 1.5em
+			text-align: justify
+
+			&:first-letter
+				content: ""
+				font-size: 2em
+				line-height: 0
+				text-transform: uppercase
+
+			a
+				text-decoration: none
+				color: $link-color
+				+transition(color $transition-time ease)
+				&:hover
+					color: $link-hover-color
+
+		.picture-frame
+			+span(4)
+			display: inline-table
+			vertical-align: top
+			margin: 0 15px 0 0
+			padding: 5px 5px 3px 5px
+			border: 1px solid $border-box-color
+			img
+				max-width: 100%
+				height: auto
+
+
+	section.footer
+		+span(12)
+		padding-top: 30px
+
+		.label
+			+span(2 no-gutters)
+			padding-top: 8px
+			color: $general-text-color
+
+			+mq($medium)
+				+span(2.5 no-gutters)
+
+			+mq($small)
+				padding-top: 10px
+
+			+mq($tiny)
+				+span(2.5 no-gutters)
+				padding-top: 0
+				line-height: 1.2em
+
+
+		.social
+			+span(3 no-gutters)
+
+			+mq($small)
+				+span(3.5 no-gutters)
+
+			+mq($tiny)
+				+span(6 no-gutters)
+
+			a
+				display: inline-block
+				margin: 0 5px
+
+				&.fb
+					width: 32px
+					height: 32px
+					background-image: image-url("social-icons/fb-post.png")
+					+transition(background-image $transition-time ease)
+					&:hover
+						background-image: image-url("social-icons/fb-post-hover.png")
+
+				&.tw
+					width: 32px
+					height: 32px
+					background-image: image-url("social-icons/tw-post.png")
+					+transition(background-image $transition-time ease)
+					&:hover
+						background-image: image-url("social-icons/tw-post-hover.png")
+
+				&.g-plus
+					width: 32px
+					height: 32px
+					background-image: image-url("social-icons/g-plus-post.png")
+					+transition(background-image $transition-time ease)
+					&:hover
+						background-image: image-url("social-icons/g-plus-post-hover.png")
+
+		.read-more
+			+span(2 last no-gutters)
+			padding: 10px
+			border: 1px solid $general-text-color
+			color: $general-text-color
+			font-size: .8em
+			text-decoration: none
+			+transition(all $transition-time ease)
+
+			+mq($medium)
+				+span(2.25 last no-gutters)
+
+			+mq($small)
+				+span(2.5 last no-gutters)
+				padding: 8px
+
+			+mq($tiny)
+				+span(3.5 last no-gutters)
+
+			&:hover
+				color: $red
+				border-color: $chocolate
+
+// Hack for Firefox
+@-moz-document url-prefix()
+	article.news
+		header
+			time
+				.day
+					line-height: 1em

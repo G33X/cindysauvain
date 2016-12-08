@@ -1,0 +1,99 @@
+= render 'partials/header'
+
+.container
+	= render 'partials/menu'
+
+	section#main role="main"
+
+		- for res in @events do
+			= date_format res, true
+
+			article.events id="event-#{res.id}"
+				header
+
+					/ from
+					- unless res.date_from == @first_day_of_2015
+						time.from class="#{'to' unless res.date_from.nil? || @date_from_month != @date_month } #{I18n.locale}" datetime="#{@full_date_from}"
+							- if I18n.locale == :en
+								span class="#{'from' if res.date_from == @first_day_of_2015}" #{@date_from_month}
+								| #{@date_from_day}
+							- if I18n.locale == :fr
+								span class="#{'from' if res.date_from == @first_day_of_2015}" #{@date_from_day}
+								- unless @date_from_month == @date_month
+									| #{@date_from_month}
+									/span.time
+										- if I18n.locale == :en
+											| #{@date_from_hours_en}:#{@date_from_minutes} #{@date_from_us_time}
+										- if I18n.locale == :fr
+											| #{@date_from_hours_fr}:#{@date_from_minutes}
+
+					/ to
+					time class="#{'to' unless res.date_from.nil? || @date_from_month != @date_month } #{I18n.locale}" datetime="#{@full_date}"
+						- unless res.date_from == @first_day_of_2015
+								span.from-to –
+						- if I18n.locale == :en
+								- unless @date_from_month == @date_month
+									span class="#{'from' unless res.date_from == @first_day_of_2015}" #{@date_month}
+								| #{@date_day}
+						- if I18n.locale == :fr
+								span class="#{'from' unless res.date_from == @first_day_of_2015}" #{@date_day}
+								| #{@date_month}
+								/span.time class="#{'time-to' unless res.date_from == @first_day_of_2015 }"
+									- if I18n.locale == :en
+										| #{@date_hours_en}:#{@date_minutes} #{@date_us_time}
+									- if I18n.locale == :fr
+										| #{@date_hours_fr}:#{@date_minutes}
+
+					h2
+						| #{res.title if I18n.locale == :en}
+						| #{res.title_fr if I18n.locale == :fr}
+						- unless res.speaker.empty?
+							span.speaker #{I18n.t "agenda.with"} #{res.speaker}
+					div.clearfix
+
+				- unless res.city.empty? && res.details.empty? && res.details_fr.empty?
+					.description
+						.details
+							h4 #{I18n.t "agenda.location"}
+							address.address
+								p
+									| #{res.building if I18n.locale == :en}
+									| #{res.building_fr if I18n.locale == :fr}
+								p #{res.address}
+								p #{res.zip} #{res.city}
+								p
+									| #{res.country if I18n.locale == :en}
+									| #{res.country_fr if I18n.locale == :fr}
+
+							- unless res.image.empty?
+								.picture
+									= image_tag res.image, class: 'lazy', lazy: true
+
+						.more-info
+							- unless res.details.nil? || res.details_fr.nil?
+								- unless res.details.empty? || res.details_fr.empty?
+									h4 Informations
+									p
+										| #{res.details if I18n.locale == :en}
+										| #{res.details_fr if I18n.locale == :fr}
+
+									- unless res.website.nil? || res.website.empty?
+										br
+										span
+											| #{I18n.t "agenda.website"}
+											| &nbsp;
+											strong
+												a href="http://#{res.website}" target="_blank" #{res.website}
+
+									- unless res.additionnal_website.nil? || res.additionnal_website.empty?
+										br
+										span
+											| #{I18n.t "agenda.and"}
+											| &nbsp;
+											strong
+												a href="http://#{res.additionnal_website}" target="_blank" #{res.additionnal_website}
+
+	aside
+		= render 'partials/aside'
+
+= render 'partials/footer'

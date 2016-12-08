@@ -1,0 +1,144 @@
+#main
+	&.portrait
+		.links
+			.logo
+				+mq($tiny)
+					max-height: 29vw
+
+	&.landscape
+		.links
+			.logo
+				+mq($tiny)
+					max-height: 14vw
+
+article.links
+	+span(12 no-gutters)
+	margin-bottom: 35px
+
+	.col
+		+span(5.875 no-gutters)
+
+		+mq($medium)
+			+span(5.8 no-gutters)
+
+		+mq($small)
+			+span(5.9 no-gutters)
+
+		+mq($tiny)
+			+span(12)
+
+		+mq($tiny_two_cols)
+			+span(6 no-gutters)
+
+		&:first-child
+			margin-right: 15px
+
+			+mq($small)
+				margin-right: 8px
+
+			+mq($tiny)
+				margin-right: 0
+
+			.link
+				.logo
+					width: 377px
+					background-size: 100%
+
+					+mq($medium)
+						width: 318px
+
+					+mq($small)
+						width: 243px
+
+					+mq($tiny)
+						width: 100%
+
+				&:nth-child(1) .logo
+					background-image: image-url("links/bethel-redding.jpg")
+				&:nth-child(2) .logo
+					background-image: image-url("links/kevin-dedmon-ministries.jpg")
+				&:nth-child(3) .logo
+					background-image: image-url("links/camp-du-surnaturel.jpg")
+				&:nth-child(4) .logo
+					background-image: image-url("links/enseignemoi.jpg")
+
+		&:last-child
+			+mq($small)
+				margin-right: 0
+
+			.link
+				.logo
+					width: 378px
+					background-size: 100%
+
+					+mq($medium)
+						width: 318px
+
+					+mq($small)
+						width: 242px
+
+					+mq($tiny)
+						width: 100%
+
+				&:nth-child(1) .logo
+					background-image: image-url("links/bethel-tv.jpg")
+				&:nth-child(2) .logo
+					background-image: image-url("links/gospel-center-lausanne.jpg")
+				&:nth-child(3) .logo
+					background-image: image-url("links/eeaa.jpg")
+				&:nth-child(4) .logo
+					background-image: image-url("links/aimg.jpg")
+
+		.link
+			display: inline-block
+			width: 100%
+			margin-bottom: 15px
+			text-decoration: none
+			outline: none
+
+			.logo
+				+span(12 no-gutters)
+				height: 114px
+				background-repeat: no-repeat
+				border-style: solid
+				border-color: $border-box-color
+				border-left-width: 1px
+				border-top-width: 1px
+				border-right-width: 1px
+				opacity: 1
+				+transition(opacity 300ms ease)
+
+				+mq($medium)
+					max-height: 97px
+
+				+mq($small)
+					max-height: 74px
+
+			.description
+				+span(12 no-gutters)
+				padding: 20px 0
+				background-color: $chocolate
+				+transition(background-color 300ms ease)
+
+				+mq($tiny_two_cols)
+					padding: 12px 0
+
+				p
+					color: $white
+					text-align: center
+					font-family: Oswald, Helvetica, Arial, sans-serif
+					font-weight: 100
+					font-size: 1.4em
+					line-height: 1.35em
+
+					+mq($medium)
+						font-size: 1.3em
+
+					+mq($tiny_two_cols)
+						font-size: 1.1em
+
+			&:hover
+				.logo
+					opacity: .5
+				.description
+					background-color: $footer-background-color

@@ -1,0 +1,35 @@
+section.widget.about-medias
+	h3 Medias
+
+	hr
+
+	.media.video
+		.icon.video
+		.description
+			p
+				= link_to 'Témoignage de Cindy en vidéo', '/'
+
+	.media.pdf
+		.icon.pdf
+		.description
+			p
+				= link_to 'Article du magazine "Christianisme Aujourd\'hui"', '/'
+
+	.media.audio
+		.icon.audio
+		.description
+			p
+				= link_to 'Prèche à l\'EEAA', '/'
+
+.video-popup.mfp-hide.zoom-anim-dialog
+	h3 Témoignage de Cindy
+	iframe src="https://player.vimeo.com/video/85841684?color=e3000f&title=0&byline=0&portrait=0" width="771" height="433" webkitallowfullscreen mozallowfullscreen allowfullscreen
+
+.pdf-popup.mfp-hide.zoom-anim-dialog
+	h3 Article du magazine "Christianisme Aujourd'hui"
+	iframe src="http://www.cindysauver.com/uploads/Une-ado-tiree-du-gouffre.pdf"
+
+.audio-popup.mfp-hide.zoom-anim-dialog
+	h3 Prèche à l'EEAA
+	audio preload="none" controls="controls"
+		source src="http://www.eeaa.ch/audio/01.06.2013.mp3" type="audio/mpeg"

@@ -1,0 +1,12 @@
+//= link_to '', class: "tagline"
+	/h4 Hello
+	/.portrait-frame.left
+		= image_tag '', class: "portrait lazy", title: "Cindy Sauvain", alt: "Cindy Sauvain", width: 100, height: 100, lazy: true
+
+.title
+	p #{I18n.t "tagline.title.first"}
+	p #{I18n.t "tagline.title.second"}
+	p #{I18n.t "tagline.title.third"}
+
+blockquote
+	p #{I18n.t "tagline.text"}

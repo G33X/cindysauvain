@@ -1,0 +1,20 @@
+header#header
+	.container
+		= image_tag 'logo-header.png', alt: 'Cindy Sauvain - Logo', class: 'logo lazy', width: 322, height: 150, lazy: true
+
+		.social
+			= link_to '', @fb_link, class: 'fb', target: '_blank', rel: 'nofollow'
+			= link_to '', @tw_link, class: 'tw', target: '_blank', rel: 'nofollow'
+			= link_to '', @insta_link, class: 'insta', target: '_blank', rel: 'nofollow'
+
+		.cycle-slideshow data-timeout='9000'
+			= image_tag 'slider/cindy.jpg', alt: t('header.slides.one'), class: 'slide lazy', width: 1200, height: 250, lazy: true
+			= image_tag 'slider/cindy-smiling.jpg', alt: t('header.slides.two'), class: 'slide lazy', width: 1200, height: 250, lazy: true
+			= image_tag 'slider/preche-tijuana.jpg', alt: t('header.slides.three'), class: 'slide lazy', width: 960, height: 250, lazy: true
+			= image_tag 'slider/stade.jpg', alt: t('header.slides.four'), class: 'slide lazy', width: 1200, height: 250, lazy: true
+
+			.cycle-pager
+
+		.banner
+			p.text #{I18n.t 'header.verse'}
+			p.bible-ref  #{I18n.t 'header.ref'}

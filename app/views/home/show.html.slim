@@ -1,0 +1,60 @@
+= render 'partials/header'
+
+.container
+	= render 'partials/menu'
+
+	section#main role="main"
+
+		article.news
+			header
+				time datetime="#{@full_date}"
+					- if I18n.locale == :fr
+						span.day #{@date_day}
+
+					span.month
+						= @date_year
+						br
+						= @date_month
+
+					- if I18n.locale == :en
+						span.day &nbsp;#{@date_day}
+
+				h2 #{@news.title}
+
+			- unless @news.video.empty?
+
+				section.video
+
+					- if @news.video_src == 'YouTube'
+						iframe src="https://www.youtube.com/embed/#{@news.video}?showinfo=0" width="771" height="434" allowfullscreen
+
+					- elsif @news.video_src == 'Vimeo'
+						iframe src="https://player.vimeo.com/video/#{@news.video}?color=e3000f&title=0&byline=0&portrait=0" width="771" height="433" webkitallowfullscreen mozallowfullscreen allowfullscreen
+
+			/section.info
+				.author By #{@news.author}
+				/.likes #{@news.likes} likes
+
+			hr
+
+			section.text
+
+				- unless @news.image.empty?
+
+					.picture-frame
+						img src="#{@news.image}"
+
+				p #{@news.text.html_safe}
+
+			section.footer
+				.label #{I18n.t 'news.share'}
+				.social
+					/https://www.facebook.com/dialog/share?app_id=1087950351220080&display=popup&href=http%3A%2F%2Fwww.cindysauvain.com%2Fnews%2F" + @news.id.to_s + "&redirect_uri=http%3A%2F%2Fwww.cindysauvain.com
+					= link_to '', "https://www.facebook.com/sharer/sharer.php?app_id=1087950351220080&display=popup&u=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2F#{@news.id.to_s}", target: "_blank", class: "fb", rel: "nofollow"
+					= link_to '', "https://twitter.com/intent/tweet?lang=#{I18n.locale}&text=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2F#{@news.id.to_s}", target: "_blank", class: "tw", rel: "nofollow"
+					= link_to '', "https://plus.google.com/share?hl=#{I18n.locale}&url=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2F#{@news.id.to_s}", target: "_blank", class: "g-plus", rel: "nofollow"
+
+	aside
+		= render 'partials/aside'
+
+= render 'partials/footer'

@@ -1,0 +1,55 @@
+= render 'partials/header'
+
+.container
+	= render 'partials/menu'
+
+	section#main role="main"
+		article.links
+
+			.col
+				= link_to "http://bethelredding.com", class: "link", title: "#{t 'links.visit'} Bethel Redding", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p Bethel Redding
+
+				= link_to "http://www.kevindedmon.com", class: "link", title: "#{t 'links.visit'} Kevin Dedmon Ministries", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p Kevin Dedmon Ministries
+
+				= link_to "http://camp-du-surnaturel-au-bord-de-la-mer.ch", class: "link", title: "#{t 'links.visit'} Camp du surnaturel au bord de la mer", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p Camp du surnaturel au bord de la mer
+
+				= link_to "http://www.enseignemoi.com", class: "link", title: "#{t 'links.visit'} EnseigneMoi", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p EnseigneMoi
+
+			.col
+				= link_to "http://bethel.tv", class: "link", title: "#{t 'links.visit'} Bethel.TV", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p Bethel.TV
+
+				= link_to "http://gc-lausanne.org", class: "link", title: "#{t 'links.visit'} Gospel Center Lausanne", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p Gospel Center Lausanne
+
+				= link_to "http://www.eeaa.ch", class: "link", title: "#{t 'links.visit'} Eglise Evangélique Apostolique d'Aubonne", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p Eglise Evangélique Apostolique d'Aubonne
+
+				= link_to "http://www.laguerison.org", class: "link", title: "#{t 'links.visit'} AIMG", target: "_blank"
+					.logo.lazy lazy="true"
+					.description
+						p AIMG
+
+
+	aside
+		= render 'partials/aside'
+
+= render 'partials/footer'

@@ -1,0 +1,37 @@
+- for res in @widget_news do
+	= date_format res
+
+	.news
+		.media
+			- if res.video?
+				= link_to '', home_path(I18n.locale, res.id), class: :video
+
+			- elsif res.image?
+				- if I18n.locale == :en
+					= image_tag res.image, alt: res.title, class: 'image'
+				- if I18n.locale == :fr
+					= image_tag res.image, alt: res.title_fr, class: 'image'
+
+			- else
+				.no-media
+					= link_to 'News', home_path(I18n.locale, res.id)
+
+			time datetime="#{@full_date}"
+				- if I18n.locale == :en
+					span.year #{res.date.strftime('%Y')}&nbsp;
+					span.month #{res.date.strftime('%m')}&nbsp;
+					span.day #{res.date.strftime('%d')}
+
+				- if I18n.locale == :fr
+					span.day #{res.date.strftime('%d')}&nbsp;
+					span.month #{res.date.strftime('%m')}&nbsp;
+					span.year #{res.date.strftime('%Y')}
+
+		.text
+			p
+				= link_to home_path(I18n.locale, res.id)
+					|#{truncate(res.text.html_safe, length: 150, escape: false) if I18n.locale == :en}
+					|#{truncate(res.text_fr.html_safe, length: 150, escape: false) if I18n.locale == :fr}
+
+		.read-more
+			= link_to 'Lire la suite', home_path(I18n.locale, res.id)

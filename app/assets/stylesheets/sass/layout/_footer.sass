@@ -1,0 +1,288 @@
+footer
+	+span(12 no-gutters)
+	margin-top: 50px
+	background-color: $footer-background-color
+
+	+mq($small)
+		margin-top: 30px
+
+	section
+		margin-bottom: 20px
+
+		h3
+			padding: 40px 0
+			color: $black
+			font-family: Oswald, Helvetica, Arial, sans-serif
+			font-weight: 100
+			font-size: 1.7em
+
+			+mq($small)
+				padding: 30px 0
+
+			+mq($tiny)
+				text-align: center
+
+		&.widget
+			+span(4)
+			border: none
+
+			+mq($tiny)
+				+span(12)
+				margin-bottom: 0
+
+			hr
+				display: none
+
+				+mq($tiny)
+					display: block
+					width: 80%
+					height: 1px
+					margin-top: 40px
+					border: 0
+					border-top: 1px solid $footer-text-color
+
+			// NEWS
+			.news
+				&:hover
+					.text
+						p
+							color: $white
+							a
+								color: $white
+
+				.text
+					a
+						text-decoration: none
+					p
+						color: $footer-text-color
+						a
+							color: $footer-text-color
+				.read-more
+					a
+						color: $white
+
+
+			// EVENTS
+			.event
+				&:hover
+					.description
+						h4
+							color: $white
+
+				.description
+					h4
+						color: $footer-text-color
+					.location
+						color: $white
+
+				.no-event
+					color: $white
+					text-align: left
+					+mq($small)
+						text-align: center
+
+
+			// TESTIMONIALS
+			.testimonial
+				margin-bottom: 20px
+				&:hover
+					h4
+						color: $white
+					.portrait-frame
+						img
+							opacity: .8
+
+				h4
+					padding-bottom: 10px
+					color: $footer-text-color
+				.portrait-frame
+					margin-right: 15px
+					padding: 4px 3px 2px 3px
+
+					+mq($small)
+						padding: 3px 3px 1px 3px
+
+				blockquote
+					+span(7.5)
+					padding-left: 12px
+					color: $white
+					&:before
+						border-left-color: $black
+
+
+		// -> _widgets.sass
+
+		&#contact
+			+span(4)
+
+			+mq($tiny)
+				+span(12)
+				margin-bottom: 0
+
+			address
+				margin-bottom: 10px
+
+				+mq($tiny)
+					text-align: center
+
+				p
+					color: $footer-text-color
+					font-weight: 300
+					font-size: .925em
+					line-height: 1.3em
+
+					span
+						margin-right: 5px
+						color: $white
+
+					a
+						color: $footer-text-color
+						font-style: italic
+						text-decoration: none
+						+transition(color 300ms ease)
+						&:hover
+							color: $white
+
+			hr
+				display: none
+
+				+mq($tiny)
+					display: block
+					width: 80%
+					height: 1px
+					margin-top: 40px
+					margin-bottom: 30px
+					border: 0
+					border-top: 1px solid $footer-text-color
+
+		&#goody
+			+span(4)
+
+			+mq($tiny)
+				+span(12)
+				max-width: 480px
+				margin-left: auto
+				margin-right: auto
+				float: none
+
+			iframe
+				+span(12 no-gutter)
+				margin: 0 0 10px
+
+			noscript
+				color: $white
+
+
+		&#footer
+			+span(12 no-gutters)
+			margin-bottom: 50px
+			padding: 30px 0
+			background-color: $chocolate
+
+			+mq($small)
+				padding: 20px 0 10px
+
+			+mq($tiny)
+				+span(12)
+
+			.container
+				+mq($medium)
+					+span(12)
+
+				+mq($tiny)
+					text-align: center
+
+			.logo
+				+span(2 no-gutters)
+				width: 165px
+				height: 73px
+				margin-right: gutter(4)
+				background: image-url("logo-footer.png") no-repeat
+				background-size: 100%
+
+				+mq($medium)
+					margin-right: 0
+
+				+mq($small)
+					+span(2 no-gutters)
+					margin-right: gutter(4)
+
+				+mq($tiny)
+					width: 82px
+					height: 36px
+					max-width: 80%
+					margin: 10px auto
+					float: none
+
+			.made-by
+				+span(8)
+				margin-right: gutter(5)
+				padding: 20px 0
+				color: $white
+				text-align: center
+				font-style: italic
+
+				+mq($medium)
+					margin-right: 0
+
+				+mq($small)
+					+span(7)
+					padding: 15px 0
+					margin-right: 0
+
+				+mq($tiny)
+					+span(12)
+					line-height: 1.5em
+
+				span
+					font-style: normal
+
+				a
+					color: $footer-link-hover-color
+					text-decoration: none
+					+transition(color $transition-time ease)
+					&:hover
+						color: $footer-link-color
+
+			.social-icons
+				+span(1.5 no-gutters)
+
+				+mq($medium)
+					+span(1.75 no-gutters)
+
+				+mq($small)
+					+span(2.5 no-gutters)
+
+				+mq($tiny)
+					+span(12)
+
+				a
+					display: inline-block
+					margin: 18px 5px
+
+					+mq($small)
+						margin: 12px 5px
+
+					&.fb
+						width: 38px
+						height: 37px
+						background-image: image-url("social-icons/fb-footer.png")
+						+transition(background-image $transition-time ease)
+						&:hover
+							background-image: image-url("social-icons/fb-footer-hover.png")
+
+					&.tw
+						width: 37px
+						height: 37px
+						background-image: image-url("social-icons/tw-footer.png")
+						+transition(background-image $transition-time ease)
+						&:hover
+							background-image: image-url("social-icons/tw-footer-hover.png")
+
+					&.insta
+						width: 37px
+						height: 37px
+						background-image: image-url("social-icons/insta-footer.png")
+						+transition(background-image $transition-time ease)
+						&:hover
+							background-image: image-url("social-icons/insta-footer-hover.png")

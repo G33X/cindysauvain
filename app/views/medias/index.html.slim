@@ -1,0 +1,53 @@
+= render 'partials/header'
+
+.container
+	= render 'partials/menu'
+
+	section#main role="main"
+
+		- @medias.each do |res|
+
+			- if !res.media_date.nil? && !res.media_link.nil? && !res.image_url.nil? && !res.likes.nil?
+
+					article.medias
+						header
+							time
+								span #{get_media_date res.media_date, 'day'}
+								br
+								| #{get_media_date res.media_date, 'month'}
+								br
+								span.year #{get_media_date res.media_date, 'year'}
+
+							.likes
+								span #{res.likes}
+
+						.picture-frame
+							= link_to res.media_link, title: 'See it on Instagram', target: '_blank'
+								= image_tag res.image_url, class: "instapic lazy", width: res.image_width, height: res.image_height, lazy: true
+
+						.description
+							p #{res.caption}
+
+			- else
+
+					article.medias
+						header
+							time
+								span --
+								br
+								| --
+								br
+								span.year ----
+
+							.likes
+								span --
+
+						.picture-frame
+							= link_to @insta_link, target: "_blank", rel: "nofollow"
+								= image_tag 'instagram-error.jpg', class: "instapic lazy", width: 1048, height: 1048, lazy: true
+
+	aside
+		= render 'partials/aside'
+		= render 'partials/widgets/medias_audio'
+
+= render 'partials/footer'
