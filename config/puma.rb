@@ -1,5 +1,4 @@
 workers 1
-threads_count = Integer(ENV['MAX_THREADS'] || 5)
 threads 1, 6
 
 app_dir = File.expand_path('../..', __FILE__)
@@ -26,6 +25,7 @@ if Socket.gethostname == 'iMac.local' &&
 
 else
 	bind "unix://#{shared_dir}/sockets/puma.sock"
+	daemonize
 end
 
 stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
@@ -46,7 +46,3 @@ lowlevel_error_handler do |e, env|
 	Rails.logger = Le.new('bed0e936-490a-4e6b-b5f1-ec20de69ee80', :debug => true, :local => true)
 	Rails.logger.warn("Environment: #{env}\n Puma caught this error: #{e.message} (#{e.class})\n#{e.backtrace.join("\n")}")
 end
-
-
-###### DONT FORGET
-# mkdir -p shared/pids shared/sockets shared/log

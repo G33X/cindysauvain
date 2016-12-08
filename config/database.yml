@@ -1,43 +1,20 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-#test:
-#  <<: *default
-#  database: db/test.sqlite3
-
-production: &production
   adapter: postgresql
   encoding: utf8
-  database: cindysauvain_pg
-  username: <%= ENV['PG_SQL_PROD_USER'] %>
-  password: <%= ENV['PG_SQL_PROD_PASS'] %>
-  host: vps344707.ovh.net
+  host: localhost
   port: 5432
   pool: 5
   timeout: 5000
+
+production: &production
+  database: cindysauvain_pg
+  username: <%= ENV['PG_SQL_PROD_USER'] %>
+  password: <%= ENV['PG_SQL_PROD_PASS'] %>
 
 production_local:
   <<: *production
 
 development:
-  adapter: postgresql
-  encoding: utf8
   database: cindy_dev
   username: <%= ENV['PG_SQL_DEV_USER'] %>
   password: <%= ENV['PG_SQL_DEV_PASS'] %>
-  host: localhost
-  port: 5432
-  pool: 5
-  timeout: 5000
