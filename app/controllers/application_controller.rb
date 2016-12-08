@@ -63,7 +63,11 @@ class ApplicationController < ActionController::Base
 
     require 'socket'
 
-    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
+    if Socket.gethostname == 'iMac.local'
+	    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
+    else
+      response.headers['Last-Modified'] = '2016-12-08 00:00:00'.httpdate
+    end
 
     response.headers['Content-Security-Policy'] =
         "script-src 'self' https://ajax.googleapis.com " \
