@@ -3,7 +3,7 @@ lock '3.6.1'
 
 server 'vps344707.ovh.net', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@example.com:user/app.git'
+set :repo_url,        'git@github.com:G33X/cindysauvain.git'
 set :application,     'cindysauvain'
 set :user,            'gmsrd'
 set :chruby_ruby,     'ruby-2.3.1-p112'

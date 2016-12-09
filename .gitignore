@@ -25,10 +25,11 @@
 /db/medias.sql
 /db/events.sql
 /db/latest.dump
+/config/deploy.rb
 /config/environments/production_local.rb
 /config/local_env.yml
 /config/secrets.yml
 /public/assets/
+/shared
 /ssl/
 .env
-/shared
