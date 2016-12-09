@@ -83,17 +83,19 @@ namespace :deploy do
 		end
 	end
 
-	before "deploy:assets:precompile" do
+	desc 'Symlink database configuration'
+	task :symlink_db_config do
 		run ["ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml",
 		     "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml",
 		     "ln -fs #{shared_path}/uploads #{release_path}/uploads"
 		    ].join(" && ")
 	end
 
-	before :starting,     :check_revision
-	after  :finishing,    :compile_assets
-	after  :finishing,    :cleanup
-	after  :finishing,    :restart
+	before :starting,       :check_revision
+	before :compile_assets, :symlink_db_config
+	after  :finishing,      :compile_assets
+	after  :finishing,      :cleanup
+	after  :finishing,      :restart
 end
 
 # ps aux | grep puma    # Get puma pid
