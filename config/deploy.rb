@@ -5,7 +5,7 @@ server 'vps344707.ovh.net', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@example.com:user/app.git'
 set :application,     'cindysauvain'
-set :user,            'G33X'
+set :user,            'gmsrd'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
