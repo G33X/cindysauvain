@@ -10,9 +10,6 @@ set :ruby_version,    'ruby-2.3.1-p112'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
-set :pg_database,     'cindysauvain_pg'
-set :pg_user,         'cindysauvain'
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

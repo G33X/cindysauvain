@@ -24,7 +24,6 @@ require "capistrano/deploy"
 require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
-require 'capistrano/postgresql'
 require 'capistrano/puma'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
