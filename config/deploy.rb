@@ -80,15 +80,15 @@ namespace :deploy do
 	end
 
 	desc 'Compile assets'
-	task :precompile_assets do
+	task :make_assets_useful do
 		on roles(:app) do
-			run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile "
+			run "cd #{fetch(:deploy_to)}; RAILS_ENV=production bundle exec rake assets:precompile "
 		end
 	end
 
 
 	before :starting,     :check_revision
-	after  :finishing,    :precompile_assets
+	after  :finishing,    :make_assets_useful
 	after  :finishing,    :cleanup
 	after  :finishing,    :restart
 end
