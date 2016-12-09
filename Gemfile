@@ -48,7 +48,8 @@ gem 'font-awesome-sass'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'execjs'
+gem 'therubyracer', platforms: :ruby
 
 # Lazyload for images
 gem 'lazyload-rails', '~> 0.3.1'
