@@ -85,10 +85,7 @@ namespace :deploy do
 
 	desc 'Symlink database configuration'
 	task :symlink_db_config do
-		exec ["ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml",
-		        "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml",
-		        "ln -fs #{shared_path}/uploads #{release_path}/uploads"
-		        ].join(' && ')
+		exec "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 	end
 
 	before :starting,       :check_revision
