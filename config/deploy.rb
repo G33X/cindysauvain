@@ -6,7 +6,7 @@ server 'vps344707.ovh.net', port: 22, roles: [:web, :app, :db], primary: true
 set :repo_url,        'git@github.com:G33X/cindysauvain.git'
 set :application,     'cindysauvain'
 set :user,            'gmsrd'
-set :chruby_ruby,     'ruby-2.3.1-p112'
+set :ruby_version,    'ruby-2.3.1-p112'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 

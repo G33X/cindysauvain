@@ -76,16 +76,18 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
+    capistrano-addins (0.0.1)
     capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-chruby (0.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.3)
     capistrano-harrow (0.5.3)
     capistrano-rails (1.2.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-ruby (0.0.1)
+      capistrano-ubuntu (~> 0.0.1)
+    capistrano-ubuntu (0.0.3)
+      capistrano-addins (~> 0.0.1)
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
@@ -322,8 +324,8 @@ DEPENDENCIES
   byebug (~> 4.0.5)
   capistrano (~> 3.6)
   capistrano-bundler
-  capistrano-chruby
   capistrano-rails
+  capistrano-ruby
   capistrano3-puma
   casein (~> 5.1.1.5)
   closure-compiler (~> 1.1.12)
