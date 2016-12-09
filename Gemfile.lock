@@ -324,7 +324,7 @@ DEPENDENCIES
   bourbon (~> 4.2.2)
   breakpoint (~> 2.5.0)
   byebug (~> 4.0.5)
-  capistrano (~> 3.6)
+  capistrano (~> 3.6.1)
   capistrano-bundler
   capistrano-postgresql
   capistrano-rails
