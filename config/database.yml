@@ -7,6 +7,7 @@ default: &default
   timeout: 5000
 
 production: &production
+  <<: *default
   database: cindysauvain_pg
   username: <%= ENV['PG_SQL_PROD_USER'] %>
   password: <%= ENV['PG_SQL_PROD_PASS'] %>
@@ -15,6 +16,7 @@ production_local:
   <<: *production
 
 development:
+  <<: *default
   database: cindy_dev
   username: <%= ENV['PG_SQL_DEV_USER'] %>
   password: <%= ENV['PG_SQL_DEV_PASS'] %>

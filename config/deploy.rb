@@ -16,8 +16,8 @@ set :puma_workers,    0
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
-set :stage,           :production
 set :rails_env,       :production
+set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/var/www/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
@@ -80,16 +80,8 @@ namespace :deploy do
 		end
 	end
 
-	desc 'Compile assets'
-	task :make_assets_useful do
-		on roles(:app) do
-			run "cd #{fetch(:deploy_to)}; RAILS_ENV=production bundle exec rake assets:precompile "
-		end
-	end
-
-
 	before :starting,     :check_revision
-	after  :finishing,    :make_assets_useful
+	after  :finishing,    :compile_assets
 	after  :finishing,    :cleanup
 	after  :finishing,    :restart
 end
