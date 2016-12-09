@@ -342,7 +342,7 @@ DEPENDENCIES
   magnific-popup-rails (~> 0.9.9.1)
   mailgun-ruby (~> 1.0.3)
   mediaelement_rails
-  passenger (~> 5.0.7)
+  passenger (~> 5.0.30)
   pg (~> 0.18.1)
   puma (~> 2.11.2)
   rack-livereload (~> 0.3.16)
