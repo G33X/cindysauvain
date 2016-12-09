@@ -1,3 +1,6 @@
+require 'socket'
+require 'rails'
+
 workers 1
 threads 1, 6
 
@@ -7,10 +10,8 @@ shared_dir = "#{app_dir}/shared"
 rails_env = ENV['RAILS_ENV'] || 'production'
 environment rails_env
 
-# Local env
-require 'socket'
-require 'rails'
 
+# Local env
 if Socket.gethostname == 'iMac.local' &&
 	 Rails.env == 'production'
 
@@ -36,7 +37,7 @@ state_path "#{shared_dir}/pids/puma.state"
 activate_control_app
 
 on_worker_boot do
-	require "active_record"
+	require 'active_record'
 	ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
 	ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
 end

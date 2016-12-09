@@ -81,6 +81,13 @@ group :development do
 	# gem 'guard-passenger', '~> 0.6.0'
 	gem 'rack-livereload', '~> 0.3.16'
 	gem 'rb-fsevent', '~> 0.9.5', :require => false
+
+	# Capistrano
+	gem 'capistrano',         require: false
+	gem 'capistrano-rvm',     require: false
+	gem 'capistrano-rails',   require: false
+	gem 'capistrano-bundler', require: false
+	gem 'capistrano3-puma',   require: false
 end
 
 group :production, :production_local do
