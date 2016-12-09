@@ -188,6 +188,9 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    passenger (5.0.30)
+      rack
+      rake (>= 0.8.1)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -339,6 +342,7 @@ DEPENDENCIES
   magnific-popup-rails (~> 0.9.9.1)
   mailgun-ruby (~> 1.0.3)
   mediaelement_rails
+  passenger (~> 5.0.7)
   pg (~> 0.18.1)
   puma (~> 2.11.2)
   rack-livereload (~> 0.3.16)

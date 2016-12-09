@@ -88,6 +88,9 @@ group :development do
 	gem 'capistrano-rails',       require: false
 	gem 'capistrano-bundler',     require: false
 	gem 'capistrano3-puma',       require: false
+
+	# Web server
+	gem 'puma', '~> 2.11.2'
 end
 
 group :production, :production_local do
@@ -106,6 +109,10 @@ group :production, :production_local do
 
 	# SSL certificate generator
 	gem 'letsencrypt_plugin'
+
+	# Web server
+	gem 'passenger', '~> 5.0.7'
+	# gem 'unicorn'
 end
 
 # Logging
@@ -119,16 +126,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Web server
-gem 'puma', '~> 2.11.2'
-# gem 'passenger', '~> 5.0.7'
-# gem 'unicorn'
 
 group :development, :test do
-	# Use Capistrano for deployment
-	# gem 'capistrano', '~> 3.4'
-	# gem 'capistrano-rails', '~> 1.1'
-
 	# Favicons generator
 	gem 'rails_real_favicon'
 
