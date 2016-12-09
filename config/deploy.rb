@@ -83,13 +83,8 @@ namespace :deploy do
 		end
 	end
 
-	# desc 'Symlink database configuration'
-	# task :symlink_db_config do
-	# 	exec "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-	# end
 
 	before :starting,       :check_revision
-	# before :compile_assets, :symlink_db_config
 	after  :finishing,      :compile_assets
 	after  :finishing,      :cleanup
 	after  :finishing,      :restart
