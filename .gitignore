@@ -27,6 +27,7 @@
 /db/events.sql
 /db/latest.dump
 #/config/deploy.rb
+/config/database.yml
 /config/environments/production_local.rb
 /config/local_env.yml
 /config/secrets.yml
