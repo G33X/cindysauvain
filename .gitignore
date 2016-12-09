@@ -16,6 +16,7 @@
 /tmp/
 .idea/
 **.DS_Store
+Capfile
 
 /app/__uploaders/
 /app/assets/unslugged/
