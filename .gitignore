@@ -37,6 +37,8 @@ Capfile
 /ssl/
 .env
 
+/vendor/bundle/
+
 /releases/
 /current/
 /repo/
