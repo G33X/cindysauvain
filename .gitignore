@@ -16,7 +16,7 @@
 /tmp/
 .idea/
 **.DS_Store
-#Capfile
+Capfile
 
 /app/__uploaders/
 /app/assets/unslugged/
@@ -26,7 +26,8 @@
 /db/medias.sql
 /db/events.sql
 /db/latest.dump
-#/config/deploy.rb
+/config/deploy/
+/config/deploy.rb
 #/config/database.yml
 /config/environments/production_local.rb
 /config/local_env.yml

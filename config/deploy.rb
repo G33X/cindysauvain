@@ -1,8 +1,6 @@
 # config valid only for current version of Capistrano
 # lock '3.6.1'
 
-server 'vps344707.ovh.net', port: 22, roles: [:web, :app, :db], primary: true
-
 set :application,     'cindysauvain'
 set :repo_url,        'git@github.com:G33X/cindysauvain.git'
 set :user,            'gmsrd'
@@ -16,6 +14,13 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
 
 set :passenger_restart_with_touch, false
+
+# set :pty,             true
+# set :use_sudo,        false
+# set :rails_env,       :production
+# set :stage,           :production
+# set :deploy_via,      :remote_cache
+# set :deploy_to,       "/var/www/#{fetch(:application)}"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -39,11 +44,6 @@ namespace :deploy do
 	end
 end
 
-
-	before :starting,       :check_revision
-	after  :finishing,      :compile_assets
-	after  :finishing,      :cleanup
-end
 
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
