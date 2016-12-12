@@ -35,3 +35,8 @@
 /shared
 /ssl/
 .env
+
+/releases/
+/current/
+/repo/
+/shared/

@@ -84,10 +84,10 @@ group :development do
 	gem 'rb-fsevent', '~> 0.9.5', :require => false
 
 	# Capistrano
-	gem 'capistrano', '~> 3.6.1', require: false
-	gem 'capistrano-rails',       require: false
-	gem 'capistrano-bundler',     require: false
-	gem 'capistrano3-puma',       require: false
+	gem 'capistrano', '~> 3.6.1'
+	gem 'capistrano-bundler'
+	gem 'capistrano-passenger', '>= 0.1.1'
+	gem 'capistrano-rails'
 
 	# Web server
 	gem 'puma', '~> 2.11.2'
