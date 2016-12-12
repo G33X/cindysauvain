@@ -1,0 +1,728 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.4
+-- Dumped by pg_dump version 9.6.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: casein_admin_users; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE casein_admin_users (
+    id integer NOT NULL,
+    login character varying NOT NULL,
+    name character varying,
+    email character varying,
+    access_level integer DEFAULT 0 NOT NULL,
+    crypted_password character varying NOT NULL,
+    password_salt character varying NOT NULL,
+    persistence_token character varying,
+    single_access_token character varying,
+    perishable_token character varying,
+    login_count integer DEFAULT 0 NOT NULL,
+    failed_login_count integer DEFAULT 0 NOT NULL,
+    last_request_at timestamp without time zone,
+    current_login_at timestamp without time zone,
+    last_login_at timestamp without time zone,
+    current_login_ip character varying,
+    last_login_ip character varying,
+    time_zone character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE casein_admin_users OWNER TO "gmsrd";
+
+--
+-- Name: casein_admin_users_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE casein_admin_users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE casein_admin_users_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: casein_admin_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE casein_admin_users_id_seq OWNED BY casein_admin_users.id;
+
+
+--
+-- Name: ckeditor_assets; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE ckeditor_assets (
+    id integer NOT NULL,
+    data_file_name character varying NOT NULL,
+    data_content_type character varying,
+    data_file_size integer,
+    assetable_id integer,
+    assetable_type character varying(30),
+    type character varying(30),
+    width integer,
+    height integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE ckeditor_assets OWNER TO "gmsrd";
+
+--
+-- Name: ckeditor_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE ckeditor_assets_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE ckeditor_assets_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: ckeditor_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE ckeditor_assets_id_seq OWNED BY ckeditor_assets.id;
+
+
+--
+-- Name: events; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE events (
+    id integer NOT NULL,
+    title character varying,
+    speaker character varying,
+    building character varying,
+    address character varying,
+    zip character varying,
+    city character varying,
+    image character varying,
+    details text,
+    date_from timestamp without time zone,
+    date timestamp without time zone,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    title_fr character varying,
+    building_fr character varying,
+    details_fr character varying,
+    website character varying,
+    additionnal_website character varying,
+    country character varying,
+    country_fr character varying
+);
+
+
+ALTER TABLE events OWNER TO "gmsrd";
+
+--
+-- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE events_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE events_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE events_id_seq OWNED BY events.id;
+
+
+--
+-- Name: letsencrypt_plugin_challenges; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE letsencrypt_plugin_challenges (
+    id integer NOT NULL,
+    response text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE letsencrypt_plugin_challenges OWNER TO "gmsrd";
+
+--
+-- Name: letsencrypt_plugin_challenges_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE letsencrypt_plugin_challenges_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE letsencrypt_plugin_challenges_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: letsencrypt_plugin_challenges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE letsencrypt_plugin_challenges_id_seq OWNED BY letsencrypt_plugin_challenges.id;
+
+
+--
+-- Name: letsencrypt_plugin_settings; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE letsencrypt_plugin_settings (
+    id integer NOT NULL,
+    private_key text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE letsencrypt_plugin_settings OWNER TO "gmsrd";
+
+--
+-- Name: letsencrypt_plugin_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE letsencrypt_plugin_settings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE letsencrypt_plugin_settings_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: letsencrypt_plugin_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE letsencrypt_plugin_settings_id_seq OWNED BY letsencrypt_plugin_settings.id;
+
+
+--
+-- Name: medias; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE medias (
+    id integer NOT NULL,
+    media_id character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    media_link character varying,
+    image_url character varying,
+    image_width integer,
+    image_height integer,
+    caption text,
+    likes integer,
+    media_date integer
+);
+
+
+ALTER TABLE medias OWNER TO "gmsrd";
+
+--
+-- Name: medias_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE medias_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE medias_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: medias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE medias_id_seq OWNED BY medias.id;
+
+
+--
+-- Name: news; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE news (
+    id integer NOT NULL,
+    title character varying,
+    text text,
+    type character varying,
+    date date,
+    image character varying,
+    video character varying,
+    author character varying,
+    likes integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    video_src character varying,
+    title_fr character varying,
+    text_fr character varying,
+    hidden boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE news OWNER TO "gmsrd";
+
+--
+-- Name: news_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE news_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE news_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE news_id_seq OWNED BY news.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO "gmsrd";
+
+--
+-- Name: testimonials; Type: TABLE; Schema: public; Owner: gmsrd
+--
+
+CREATE TABLE testimonials (
+    id integer NOT NULL,
+    name character varying,
+    text text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    image character varying,
+    image_pos character varying,
+    text_fr text
+);
+
+
+ALTER TABLE testimonials OWNER TO "gmsrd";
+
+--
+-- Name: testimonials_id_seq; Type: SEQUENCE; Schema: public; Owner: gmsrd
+--
+
+CREATE SEQUENCE testimonials_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE testimonials_id_seq OWNER TO "gmsrd";
+
+--
+-- Name: testimonials_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmsrd
+--
+
+ALTER SEQUENCE testimonials_id_seq OWNED BY testimonials.id;
+
+
+--
+-- Name: casein_admin_users id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY casein_admin_users ALTER COLUMN id SET DEFAULT nextval('casein_admin_users_id_seq'::regclass);
+
+
+--
+-- Name: ckeditor_assets id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY ckeditor_assets ALTER COLUMN id SET DEFAULT nextval('ckeditor_assets_id_seq'::regclass);
+
+
+--
+-- Name: events id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
+
+
+--
+-- Name: letsencrypt_plugin_challenges id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY letsencrypt_plugin_challenges ALTER COLUMN id SET DEFAULT nextval('letsencrypt_plugin_challenges_id_seq'::regclass);
+
+
+--
+-- Name: letsencrypt_plugin_settings id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY letsencrypt_plugin_settings ALTER COLUMN id SET DEFAULT nextval('letsencrypt_plugin_settings_id_seq'::regclass);
+
+
+--
+-- Name: medias id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY medias ALTER COLUMN id SET DEFAULT nextval('medias_id_seq'::regclass);
+
+
+--
+-- Name: news id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY news ALTER COLUMN id SET DEFAULT nextval('news_id_seq'::regclass);
+
+
+--
+-- Name: testimonials id; Type: DEFAULT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY testimonials ALTER COLUMN id SET DEFAULT nextval('testimonials_id_seq'::regclass);
+
+
+--
+-- Data for Name: casein_admin_users; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY casein_admin_users (id, login, name, email, access_level, crypted_password, password_salt, persistence_token, single_access_token, perishable_token, login_count, failed_login_count, last_request_at, current_login_at, last_login_at, current_login_ip, last_login_ip, time_zone, created_at, updated_at) FROM stdin;
+0	admin	Admin	geex@myself.com	0	400$8$3d$cde10379b6b7d8a8$7b9b67b499bfac847595038e09431b76e170d86a9fae2717b54545f9f8475614	RS8R69uku1ZY3LZkZaT	18921b18164a6fafb9e5c35a83409fb9f730af1c94585e096d3628fe3985557cd99e5d5021e30613af3504d84fe213544aaac0f8f56323f222641a907988506c	UpIzDZHgcFzyZVCYcD	RgY8r7xm6FxlDerZ2	48	0	2016-10-17 20:32:04.865017	2016-10-17 16:33:18.388892	2016-09-28 10:27:58.501955	82.146.204.68	82.146.204.68	UTC	2015-04-17 20:00:44.02081	2016-10-17 20:32:04.868924
+1	mschavann	Mélanie Schavann	melanie.schavann@gmail.com	10	400$8$23$1b345dc2a868f117$a4dcc959d083ca043efe62e3bba02c651a53dac14a7428ec5c554fddc4fad79f	924E6kJyEKUw61Qk7AmY	bcb7e583132fc26755356212032d4b51e1bc6331c3e59b3d80fac61341e78a09d5b28107790905be8433ca81c0890ce03ea314539ee164cfd2285cf7b2e35f30	KCNhNnZsVhiJZ7S4mZU	qrHDDmTRfpAbNcjwlLA	1	0	2016-09-22 18:26:35.077838	2016-09-22 18:25:56.684521	\N	82.146.218.48	\N	Paris	2016-09-22 18:16:11.97306	2016-09-22 18:26:35.079093
+\.
+
+
+--
+-- Name: casein_admin_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('casein_admin_users_id_seq', 3, true);
+
+
+--
+-- Data for Name: ckeditor_assets; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY ckeditor_assets (id, data_file_name, data_content_type, data_file_size, assetable_id, assetable_type, type, width, height, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: ckeditor_assets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('ckeditor_assets_id_seq', 1, false);
+
+
+--
+-- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY events (id, title, speaker, building, address, zip, city, image, details, date_from, date, created_at, updated_at, title_fr, building_fr, details_fr, website, additionnal_website, country, country_fr) FROM stdin;
+2	Culte		Eglise évangélique apostolique du valais central	Route du Manège 60	1950	Sion			2015-01-01 00:00:00	2015-06-28 09:30:00	2015-04-17 20:28:09.591789	2015-04-18 16:10:44.326253	\N	\N	\N	\N	\N	\N	\N
+21	Germany tour								2016-01-21 00:00:00	2016-01-24 12:00:00	2015-08-23 17:04:06.436051	2015-08-23 17:04:06.436051	Tournée en Allemagne			\N	\N	\N	\N
+1	Prèche		Eglise Saint Augustin	Rue des Roches Grises	44300	Nantes			2015-01-01 00:00:00	2015-06-24 12:00:00	2015-04-17 20:31:36.165554	2015-04-25 14:43:36.340661	\N	\N	\N	\N	\N	\N	\N
+4						(Brésil)			2015-06-03 00:00:00	2015-06-22 12:00:00	2015-05-25 19:07:05.595238	2015-05-25 19:07:05.595238	\N	\N	\N	\N	\N	\N	\N
+5	Revival meeting		Eglise Evangélique Apostolique d'Aubonne	Rte de l'Ouriette 141	1170	Aubonne		Venez expérimenter la puissance de Dieu	2015-01-01 00:00:00	2015-06-25 19:00:00	2015-06-23 16:36:34.055336	2015-06-23 16:36:34.055336	\N	\N	\N	\N	\N	\N	\N
+6	Impact Festival "Five" - Edition 2015				84000	Avignon	http://www.sourcesdevie.net/wp-content/uploads/2014/04/PUB04.jpg	Site officiel: http://www.sourcesdevie.net/du-ciel-sur-la-terre/impact-festival-2015/\r\n\r\nInscription jusqu'au 21 juin	2015-07-07 00:00:00	2015-07-10 12:00:00	2015-06-23 16:43:58.551211	2015-06-23 16:48:29.968791	\N	\N	\N	\N	\N	\N	\N
+7	Tour in southern France								2015-07-28 00:00:00	2015-08-05 12:00:00	2015-06-23 16:53:52.98618	2015-07-29 17:09:06.471067	Tournée au sud de la France			\N	\N	\N	\N
+14	Preaching in churches in England								2015-10-15 00:00:00	2015-10-19 12:00:00	2015-06-23 17:12:18.511271	2015-09-02 20:04:47.561338	Prèches dans des églises en Angleterre					\N	\N
+18	Travel to Spain							Cindy goes to equip a church for the supernatural and meet some leaders.	2015-10-02 00:00:00	2015-10-06 12:00:00	2015-08-23 17:00:09.989765	2015-09-02 20:05:24.21662	Voyage en Espagne		Cindy va équiper une église au surnaturel et rencontrer des leaders.			\N	\N
+19	American tour								2015-11-04 00:00:00	2015-11-15 12:00:00	2015-08-23 17:01:07.831916	2015-09-02 20:06:10.619282	Tournée en Amérique					\N	\N
+10	Preaching, training and equiping				66000	Perpignan			2015-08-19 00:00:00	2015-08-23 12:00:00	2015-06-23 16:57:49.374565	2015-07-29 17:25:28.46042	Prèche, mise en pratique et équipement			\N	\N	\N	\N
+11	Tour in West Germany								2015-08-24 00:00:00	2015-09-02 12:00:00	2015-06-23 17:01:14.558425	2015-07-29 17:27:13.732001	Tournée dans l'ouest de l'Allemagne			\N	\N	\N	\N
+20	Brasil tour					Rio de Janero, Sao Paulo, and Lages			2015-11-16 00:00:00	2015-12-06 12:00:00	2015-08-23 17:03:15.325846	2015-09-02 20:43:32.141659	Tournée au Brésil					\N	\N
+8	Live the power of the gospel			9, rue Arthur Warocqué	7140	Morlanwelz, Belgique	https://scontent-ams3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11760195_10207372235694511_681159374203393346_n.jpg?oh=f981ceac2c9167866c9c41df7e8813d8&oe=5649EC14		2015-08-07 00:00:00	2015-08-09 12:00:00	2015-06-23 16:54:44.453616	2015-07-29 17:43:05.254538	Vivre la puissance de l'évangile			\N	\N	\N	\N
+9	Super Tuesday: Power anointing		Gospel Center	Avenue de Provence 4	1007	Lausanne	http://gc-lausanne.org/media/cache/resolve/event_picture/uploads/images/2015_06_23_301.jpeg	19h30 - 21h00	2015-01-01 00:00:00	2015-08-11 12:00:00	2015-06-23 16:55:47.038593	2015-07-30 18:53:17.48902	Super Tuesday: Onction de puissance	Gospel Center	19h30 - 21h00	\N	\N	\N	\N
+12	Firestarters	Kevin Dedmon			1610	Oron-la-Ville		Firestarters with my mentor Kevin Dedmon in the french speaking part of Switzerland.	2015-09-10 00:00:00	2015-09-13 12:00:00	2015-06-23 17:05:08.79058	2015-07-30 18:57:01.931081	Firestarters		Firestarters avec mon mentor Kevin Dedmon en Suisse Romande.	\N	\N	\N	\N
+15	Preaching in Aubonne church		Eglise Evangélique Apostolique d'Aubonne		1170	Aubonne			2015-01-01 00:00:00	2015-09-05 12:00:00	2015-08-23 16:39:45.355823	2015-08-23 16:39:45.355823	Prèche à l'église d'Aubonne	Eglise Evangélique Apostolique d'Aubonne		\N	\N	\N	\N
+16	Preaching at Gospel Center		Gospel Center	Avenue de Provence 4	1007	Lausanne			2015-01-01 00:00:00	2015-09-06 12:00:00	2015-08-23 16:41:40.291309	2015-08-23 16:41:40.291309	Prèche au Gospel Center	Gospel Center		\N	\N	\N	\N
+17	Retreat for the church youth group		Église Évangélique E-Elim	14 route de Tully	74200	Thonon-les-Bains	http://e-elim.churchinsight.com/Images/content/2093/610523.JPG		2015-09-25 00:00:00	2015-09-27 12:00:00	2015-08-23 16:54:26.600545	2015-08-23 16:54:26.600545	Retraite pour le groupe de jeune d'église	Église Évangélique E-Elim		\N	\N	\N	\N
+22	Tour in Montreal and Toronto								2016-02-29 00:00:00	2016-03-20 12:00:00	2015-08-23 17:08:21.448388	2016-01-24 18:28:23.943623	Tournée à Montreal et Toronto					Canada (Québec)	Canada (Québec)
+13	Creative conference	Theresa Dedmon	EERV Corsier-Corseaux / Eglise Evangélique Apostolique d'Aubonne	Place du Temple / Rte de l'Ouriette 141	1804 Corsier-sur-Vevey /	1170 Aubonne	http://createsupernaturally.com/wp-content/uploads/2015/05/theresa.jpg	The reformed parish of Corsier and Corseaux and the Apostolic Evangelical Church of Aubonne invites Theresa Dedmon, Head of Creative Arts at Bethel Church in California. Theresa is invested in pastoral ministry for over 25 years. She activates the churches so that they can reach their towns and villages through creative expressions. Every weekend includes a seminar and workshops to develop the creation with the supernatural creative power of God.	2015-10-23 00:00:00	2015-11-01 12:00:00	2015-06-23 17:10:49.294291	2015-08-23 18:04:37.610039	Creative conference	EERV Corsier-Corseaux / Eglise Evangélique Apostolique d'Aubonne	La Paroisse réformée de Corsier-Corseaux et l'Eglise Evangélique Apostolique d'Aubonne invitent Theresa Dedmon, responsable des Arts créatifs de l'Eglise de Bethel en Californie. Theresa est investie dans le ministère pastoral depuis plus de 25 ans. Elle active les Eglises pour qu'elles puissent toucher leurs villes et villages au travers d'expressions créatives. Chaque week-end comprend un séminaire et des ateliers, afin de développer la création avec la puissance créatrice surnaturelle de Dieu.	www.corsiercorseaux.eerv.ch	www.eeaa.ch	\N	\N
+30	Cindy Sauvain's Canadian Tour 2016 - Toronto					Toronto			2016-09-27 00:00:00	2016-10-05 12:00:00	2016-09-28 11:13:29.561783	2016-09-28 11:20:38.91404	Tournée 2016 au Canada - Toronto					Canada	Canada
+31	Cindy Sauvain's Canadian Tour 2016 - Montréal					Montréal			2016-10-06 00:00:00	2016-10-17 12:00:00	2016-09-28 11:22:02.075121	2016-09-28 11:22:02.075121	Tournée 2016 au Canada - Montréal					Canada	Canada
+29	Culte		Evangelical Apostolic Church	Rte de l'Ouriette 141	1170	Aubonne	/assets/links/eeaa-f118ad06d6f5f4f7c1f2b8f1fc5afe02c899bab1098d9271e4af9e07c80688e7.png	 	2015-01-01 00:00:00	2016-01-31 10:00:00	2016-01-28 20:05:44.527583	2016-01-30 18:27:10.239961	Culte	Eglise Evangélique Apostolique	 	www.eeaa.ch		Switzerland	Suisse
+23	Evening service		Centre de Vie	Mille-Boilles 4	2000	Neuchâtel	http://www.centredevie.ch/wp/wp-content/uploads/2015/03/logo_cdv_2015_blanc.png	 At 7:00 PM	2015-01-01 00:00:00	2016-02-07 19:00:00	2016-01-24 18:04:36.763779	2016-02-04 20:11:49.482761	Culte du soir	Centre de Vie	 A 19h00	www.centredevie.ch		Switzerland	Suisse
+32	Cindy Sauvain's Canadian Tour 2016 - Sherbrooke					Sherbrooke			2016-10-18 00:00:00	2016-10-25 12:00:00	2016-09-28 11:23:11.085154	2016-09-28 11:23:11.085154	Tournée 2016 au Canada - Sherbrooke					Canada	Canada
+33	Cindy Sauvain's Canadian Tour 2016 - Ottawa					Ottawa			2016-11-04 00:00:00	2016-11-08 12:00:00	2016-09-28 11:24:17.852888	2016-09-28 11:24:17.852888	Tournée 2016 au Canada - Ottawa					Canada	Canada
+24	Celebration		Evangelical Apostolic Church	Rue de la Chapelle 5	2400	Le Locle		 At 9:30 AM	2015-01-01 00:00:00	2016-02-07 09:30:00	2016-01-24 18:21:08.530285	2016-02-04 20:29:40.704771	Célébration	Eglise Evangélique Apostolique	 A 9h30	www.eaelelocle.ch		Switzerland	Suisse
+26	Celebration		Evangelical Apostolic Church		1630 / 1700	Bulle / Fribourg	http://www.eebulle.ch/assets/layout/logo-c0cece836ac5f5e13aaac2091911a180079c05698f7efa33f3358de42cc65efb.png	 	2016-03-26 10:00:00	2016-03-27 10:00:00	2016-01-24 18:31:09.933246	2016-05-24 16:55:44.521407	Célébration	Eglise Evangélique Apostolique	 	www.eebulle.ch		Switzerland	Suisse
+25	Preaches in churches								2016-02-18 00:00:00	2016-02-28 12:00:00	2016-01-24 18:25:43.023257	2016-05-24 16:58:03.610883	Prèches dans les églises					Columbia	Colombie
+27	Conference about the prophecy								2016-05-27 00:00:00	2016-05-30 12:00:00	2016-01-24 18:34:26.320418	2016-05-24 16:58:29.826677	Conférence sur la prophétie					Germany / Holland	Allemagne / Hollande
+28	Camp of the supernatural at the seaside		Le Centre Azur des UCJG	Avenue du Nid 149	83110	Sanary-sur-Mer	https://scontent-frt3-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11046463_803394089731049_6873595163398667399_n.jpg?oh=309207488aad16fe07793f27cdb94042&oe=573B193C	Event canceled	2016-07-15 00:00:00	2016-07-24 12:00:00	2016-01-24 18:39:15.467879	2016-05-24 17:00:17.453496	Camp du surnaturel au bord de la mer	Le Centre Azur des UCJG	 Événement annulé 	www.camp-du-surnaturel-au-bord-de-la-mer.ch		France	France
+\.
+
+
+--
+-- Name: events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('events_id_seq', 33, true);
+
+
+--
+-- Data for Name: letsencrypt_plugin_challenges; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY letsencrypt_plugin_challenges (id, response, created_at, updated_at) FROM stdin;
+1	y3ajX--6DN1KyFl3JsBeyVnvc-ysEvZaMM40LXiHVtI.JsvRmzJfAjfVqV8_VdVuwAPnBvtVzfsNnoluKuxl5Oc	2016-07-28 21:11:58.995718	2016-10-24 22:25:08.000239
+\.
+
+
+--
+-- Name: letsencrypt_plugin_challenges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('letsencrypt_plugin_challenges_id_seq', 1, true);
+
+
+--
+-- Data for Name: letsencrypt_plugin_settings; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY letsencrypt_plugin_settings (id, private_key, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: letsencrypt_plugin_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('letsencrypt_plugin_settings_id_seq', 1, false);
+
+
+--
+-- Data for Name: medias; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY medias (id, media_id, created_at, updated_at, media_link, image_url, image_width, image_height, caption, likes, media_date) FROM stdin;
+1	658058237783837393_1097652049	2015-04-17 20:42:35.596416	2015-04-17 20:42:35.596416	https://www.instagram.com/p/kh5HsQoArR/	https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e15/1742779_599260940151437_1026662222_n.jpg?ig_cache_key=NjU4MDU4MjM3NzgzODM3Mzkz.2	640	640	\N	16	1392666676
+2	944297659020085857_1097652049	2015-04-17 20:44:36.990381	2015-04-17 20:44:36.990381	https://www.instagram.com/p/0a0bfAIAph/	https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e15/11023279_1563411543918189_1826959645_n.jpg?ig_cache_key=OTQ0Mjk3NjU5MDIwMDg1ODU3.2	640	640	Joaquin Evans bringing a storm in Santa Cruz!!! It's all about the presence... Such an honor to seat under those powerful man of God! @joaquinevans @reneejevans	10	1426789074
+5	1011514417094855463_1097652049	2015-07-03 20:00:10.690557	2015-07-03 20:00:10.690557	https://www.instagram.com/p/4JnwDMIAsn/	https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e15/11326791_1441430759512076_1186843066_n.jpg?ig_cache_key=MTAxMTUxNDQxNzA5NDg1NTQ2Mw%3D%3D.2	640	640	I had a great Time in Germany (Sttugart and freibourg) with Kevin dedmon! Yesterday I had the huge opportunity to teach on the prophetic and prophecy over the leader of this amazing church ;) Now I m going Back to Switzerland! And I m preaching tomorrow morning in the French speaking part of my country at my dad's church :) thanks @kevindedmon	14	1434801936
+4	999402619839450026_1097652049	2015-07-03 19:59:45.670993	2015-07-03 19:59:45.670993	https://www.instagram.com/p/3el2M_IAuq/	https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e15/11420810_582946541808347_527331305_n.jpg?ig_cache_key=OTk5NDAyNjE5ODM5NDUwMDI2.2	640	640	These are some of the man of God that poured into my life for the last 3 years at bethel school of supernatural ministry!  I m for ever greatful! God is so good and so faithful! Now ready to go into all the world and see revival breaking out first destination BRAZIL!! @kevindedmon @brevived @angelojeanpierre @brandonrice_ Chris overstreet!	8	1433358098
+3	903057843041602197_1097652049	2015-07-03 19:59:18.725546	2015-07-03 19:59:18.725546	https://www.instagram.com/p/yITlLaIAqV/	https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e15/10932169_427175397439666_2096379701_n.jpg?ig_cache_key=OTAzMDU3ODQzMDQxNjAyMTk3.2	640	640	Randy Clark is in town / healing school :)	17	1421872905
+\.
+
+
+--
+-- Name: medias_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('medias_id_seq', 7, true);
+
+
+--
+-- Data for Name: news; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY news (id, title, text, type, date, image, video, author, likes, created_at, updated_at, video_src, title_fr, text_fr, hidden) FROM stdin;
+9	After BSSM	Cindy shares her heart after her third year at BSSM	\N	2015-07-28		134775122	\N	\N	2015-07-28 20:53:05.480289	2016-10-17 17:14:56.340824	Vimeo	Après BSSM	Cindy partage ses impressions après sa troisième année à BSSM	f
+10	Cindy Sauvain's Canadian tour 2016	Preaching tour in Canada from September 27 to November 8, 2016. More info on the Itinerary page.	\N	2016-09-28			\N	\N	2016-09-28 10:31:18.236992	2016-10-17 16:55:20.087815	YouTube	Tournée 2016 au Canada	Tournée au Canada du 27 septembre au 8 novembre 2016. Plus d'infos sur la page Agenda.	f
+8	A supernatural life	Interview of Cindy Sauvain	\N	2015-07-10		1hlo5J0eDYM	\N	\N	2015-07-28 18:38:22.509597	2016-10-17 16:55:50.71527	YouTube	Une vie au surnaturel	Interview de Cindy Sauvain	t
+1	Crazy for Jesus Camp 2014	Crazy for Jesus Camp 2014 in Germany.		2015-04-17		85841684		\N	2015-04-17 20:04:48.414135	2016-10-17 17:14:50.49188	Vimeo	Crazy for Jesus Camp 2014	Crazy for Jesus Camp 2014 en Allemagne.	f
+\.
+
+
+--
+-- Name: news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('news_id_seq', 10, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY schema_migrations (version) FROM stdin;
+20150215194221
+20150215200146
+20150215215316
+20150215220452
+20150407175228
+20150418010010
+20160728210903
+20160728210904
+\.
+
+
+--
+-- Data for Name: testimonials; Type: TABLE DATA; Schema: public; Owner: gmsrd
+--
+
+COPY testimonials (id, name, text, created_at, updated_at, image, image_pos, text_fr) FROM stdin;
+9	Clara	Clara is 32, she was born premature and had a diseases since birth in her brain. it was attacking the muscles and the elasticity of a tendon. She was numb in her right leg couldn't move her ankle and her foot was not straight! After we prayed she was healed!!! she could run like never before move her ankle her leg grow out and she could move her foot!!! The best news was that she was getting married really soon and will be able to wear the shoes she wants :)	2015-07-01 19:56:55.130943	2016-08-12 09:35:45.999296	https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11353062_435796423268612_1587313657_n.jpg	Left	Clara a 32 ans. Elle est née prématurée et a une maladie au cerveau depuis sa naissance. Ça attaquait les muscles et l'élasticité d'un tendon. Elle était engourdie dans sa jambe droite, ne pouvait pas bouger sa cheville et son pied n'était pas droit ! Après que nous ayons prié, elle fût guérie !!! Elle pouvait courir comme jamais, bouger sa cheville et sa jambe et elle pouvait aussi bouger son pied !!! Les meilleures nouvelles étaient qu'elle allait se marier très bientôt et fût en mesure de porter les chaussures qu'elle voulait :)
+11	Un sourd guéri par la puissance de Dieu	At a meeting in Nîmes in southern France during the period of the ministry, God gave me a word of knowledge that someone was deaf in his left ear! So we had sung a song, his ear was healed! By the power of God he could hear perfectly for the first time!	2015-09-14 18:18:45.943326	2016-08-12 08:49:42.816428	/assets/miracles/ear-202b053501b8907b3cbdf4146e99ea77.jpg	Left	Lors d'une rencontre à Nîmes au Sud de la France durant la période du ministère, Dieu m'a donné une parole de connaissance que quelqu'un était sourd à l'oreille gauche ! Alors qu'on eu chanté un chant, son oreille fut guérie ! Par la puissance de Dieu il pouvait entendre parfaitement pour la première fois !
+12	Une femme guérie du mal de dos	At a meeting in Germany we prayed for this woman, and she was cured of a terrible backache (lumbar vertebrae problem), she suffered of a terrible and constant pain and she used to use a walker! After having five operations she was completely healed!	2015-09-14 18:30:44.065355	2016-08-12 09:04:26.402416		Right	Lors d'une réunion en Allemagne on a prié pour cette femme, puis elle a été guérie d'un terrible mal de dos (problème aux lombaires), elle souffrait d'une terrible douleur constante et elle avait l'habitude d'utiliser un tintébin! Après avoir eu 5 opérations elle a été complétement guérie !
+8	God is the God of miracles !	I preached at San Francisco this weekend! I had a word of knowledge for a Back that needed healing! This Man had 2 disk pushed together, he could not stand more than 3 mins, the right side of his body was numb, he could not walk without a cane, could not run and had horrible pain in his hip since 2005! We prayed for him and he got HEALED ! ALL the pain left his body, his leg grew out and he RAN for the First Time with me on stage in front of the whole church!\r\n\r\nAt the night service a Man was in a wheelchair because of an accident and he was paralysed. After we prayed for him, he could move his hands and arms! The next day the doctor told him his muscle double in size! Twice stronger! This is Jesus ! He is the same yesterday, today and forever !!! He is the God of miracles!!	2015-07-01 19:56:10.900679	2016-08-12 09:34:13.889215	https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11356611_898508430209606_609051315_n.jpg	Right	Je prêchais à San Francisco ce week-end ! J'ai eu une parole de connaissance, pour un dos qui avait besoin de guérison ! Cet homme avait 2 disques poussés ensemble, il ne pouvait pas rester debout plus de 3 minutes, le côté droit de son corps était engourdi, il ne pouvait pas marcher sans une canne, ne pouvait pas courir et avait une douleur horrible dans sa hanche depuis 2005 ! Nous avons prié pour lui et il a obtenu la guérison !!! Toute la douleur a quitté son corps, sa jambe s'est rectifiée et il a couru pour la première fois avec moi sur l'estrade en face de l'église entière!\r\n\r\nAu service de nuit, un homme était dans un fauteuil roulant en raison d'un accident: il était paralysé. Après que nous ayons prié pour lui il pouvait bouger ses mains et les bras! Le lendemain, le médecin lui a dit que son muscle avait doublé de taille! Deux fois plus fort! C'est Jésus ! Il est le même hier, aujourd'hui et pour toujours !!! Il est le Dieu des miracles !!
+13	Kendji Girac	While I was on the highway in the middle of traffic, looking out the window, my friend told me that the famous singer Kendji Girac is involved in an accident. We exceeds the car when suddenly I feel in my heart that I must prophesy for him! With my friend, we pray for that our two cars stop side by side. God opens the door. Window open, I talk to the driver of this great Mercedes with tinted window worthy of that of a star and asked if I could speak to the singer Kendji Girac! He looks at me and said, "Keep Talking!" So I could prophesy for him! Then the manager asks a speech for him too before the driver asks me to turn a word for him! I believe that God will bring prophetic ways for people of influence in this world: The stars.	2015-09-14 18:43:03.953421	2016-08-12 09:36:36.632376	//media.melty.fr/pmedia-2705211-ajust_640/gitan-kendji-a-souvent-ete-victime-de-racisme.jpg	Left	Alors que j'étais sur l'autoroute au millieu du trafic, en regardant par la fenêtre, mon ami me dit que ce fameux chanteur Kendji Girac est impliqué dans un accident. On dépasse la voiture quand tout à coup je sens dans mon coeur que je dois prophétiser pour lui ! Avec mon ami, on prie pour que nos 2 voitures s'arrêtent côte à côte. Dieu ouvre la porte. Fenêtre baissée, je m'adresse au conducteur de cette grande Mercedes à fenêtre teintée digne de celle d'une star et lui demande si je pourrais parler au chanteur Kendji Girac! Il me regarde et me dit "On t'écoute !" J'ai donc pu prophétiser pour lui ! Puis le manager demande une parole pour lui aussi avant que le conducteur me demande à son tour une parole pour lui ! Je crois que Dieu va amener des voies prophétiques pour les gens d'influence de ce monde: Les stars.
+\.
+
+
+--
+-- Name: testimonials_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmsrd
+--
+
+SELECT pg_catalog.setval('testimonials_id_seq', 13, true);
+
+
+--
+-- Name: casein_admin_users casein_admin_users_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY casein_admin_users
+    ADD CONSTRAINT casein_admin_users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ckeditor_assets ckeditor_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY ckeditor_assets
+    ADD CONSTRAINT ckeditor_assets_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: events events_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT events_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: letsencrypt_plugin_challenges letsencrypt_plugin_challenges_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY letsencrypt_plugin_challenges
+    ADD CONSTRAINT letsencrypt_plugin_challenges_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: letsencrypt_plugin_settings letsencrypt_plugin_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY letsencrypt_plugin_settings
+    ADD CONSTRAINT letsencrypt_plugin_settings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: medias medias_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY medias
+    ADD CONSTRAINT medias_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: news news_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY news
+    ADD CONSTRAINT news_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: testimonials testimonials_pkey; Type: CONSTRAINT; Schema: public; Owner: gmsrd
+--
+
+ALTER TABLE ONLY testimonials
+    ADD CONSTRAINT testimonials_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: idx_ckeditor_assetable; Type: INDEX; Schema: public; Owner: gmsrd
+--
+
+CREATE INDEX idx_ckeditor_assetable ON ckeditor_assets USING btree (assetable_type, assetable_id);
+
+
+--
+-- Name: idx_ckeditor_assetable_type; Type: INDEX; Schema: public; Owner: gmsrd
+--
+
+CREATE INDEX idx_ckeditor_assetable_type ON ckeditor_assets USING btree (assetable_type, type, assetable_id);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: gmsrd
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: gmsrd
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM "gmsrd";
+GRANT ALL ON SCHEMA public TO "gmsrd";
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
