@@ -55,10 +55,8 @@ Rails.application.routes.draw do
 	if Rails.env.production? ||
 		 Rails.env.production_local?
 
-		if Socket.gethostname != 'iMac.local'
-			# Mounting of Let's Encrypt plugin
-			mount LetsencryptPlugin::Engine => '/'
-		end
+		# Mounting of Let's Encrypt plugin
+		mount LetsencryptPlugin::Engine => '/'
 	end
 
 	# if Rails.configuration
