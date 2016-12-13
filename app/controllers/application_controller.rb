@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
     if Socket.gethostname == 'iMac.local'
 	    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
     else
-      response.headers['Last-Modified'] = File.read('shared/last-deployment')
+      response.headers['Last-Modified'] = File.read("#{Rails.root}/shared/last-deployment")
     end
 
     response.headers['Content-Security-Policy'] =
