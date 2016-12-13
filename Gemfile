@@ -111,7 +111,7 @@ group :production, :production_local do
 	gem 'letsencrypt_plugin'
 
 	# Web server
-	gem 'passenger', '~> 5.0.30'
+	gem 'passenger', '>= 5.0.30', require: 'phusion_passenger/rack_handler'
 	# gem 'unicorn'
 end
 
