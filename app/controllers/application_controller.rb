@@ -66,8 +66,7 @@ class ApplicationController < ActionController::Base
     if Socket.gethostname == 'iMac.local'
 	    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
     else
-      # TODO: Set the last deployment date
-      response.headers['Last-Modified'] = 'Tue, 13 Dec 2016 14:20:31 GMT'
+      response.headers['Last-Modified'] = File.read('shared/last-deployment')
     end
 
     response.headers['Content-Security-Policy'] =
