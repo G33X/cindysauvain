@@ -14,10 +14,6 @@ $(function() {
 		}
 	});
 
-	if (location.href = 'http://vps344707.ovh.net/en/donate') {
-		console.log('Capistrano test has passed successfully !');
-	}
-
 	/**
 	 * Mobile menu
 	 */
