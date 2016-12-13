@@ -19,7 +19,7 @@ require 'bourbon'
 
 require 'rubygems'
 require 'closure-compiler'
-Closure::Compiler.new.compile(File.open('app/assets/javascripts/application.js', 'r'))
+#Closure::Compiler.new.compile(File.open('app/assets/javascripts/application.js', 'r'))
 ActiveSupport::Gzip.compress('app/assets/javascripts/application.js')
 
 # Require the gems listed in Gemfile, including any gems
