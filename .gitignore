@@ -40,6 +40,6 @@ Capfile
 /vendor/bundle/
 
 /releases/
-/current/
+current
 /repo/
 /shared/
