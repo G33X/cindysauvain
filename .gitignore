@@ -34,7 +34,11 @@ Capfile
 /config/secrets.yml
 /public/assets/
 /shared
-/ssl/
+/ssl/certificates/cindysauvain.com-chain.pem
+/ssl/certificates/cindysauvain.com-fullchain.pem
+/ssl/challenge/
+/ssl/key/
+/ssl/cacert.pem
 .env
 
 /vendor/bundle/
