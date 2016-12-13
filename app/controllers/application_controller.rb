@@ -63,12 +63,12 @@ class ApplicationController < ActionController::Base
 
     require 'socket'
 
-    # if Socket.gethostname == 'iMac.local'
-	   #  response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
-    # else
+    if Socket.gethostname == 'iMac.local'
+	    response.headers['Last-Modified'] = File.read('.env').to_datetime.httpdate
+    else
       # TODO: Set the last deployment date
-      # response.headers['Last-Modified'] = 'Fri Dec 12 23:07:29 CEST 2016'
-    # end
+      response.headers['Last-Modified'] = 'Tue, 13 Dec 2016 14:20:31 GMT'
+    end
 
     response.headers['Content-Security-Policy'] =
         "script-src 'self' https://ajax.googleapis.com " \
@@ -108,7 +108,7 @@ class ApplicationController < ActionController::Base
 
     response.headers['X-Powered-By'] = 'Ruby on Rails 4.2'
 
-    # response.headers['Expires'] = (Time.now + 7.days).httpdate
+    response.headers['Expires'] = (Time.now + 7.days).httpdate
 
     # HTTP 1.1 'pre-check=0, post-check=0' (IE specific)
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=2592000, pre-check=0, post-check=0'
