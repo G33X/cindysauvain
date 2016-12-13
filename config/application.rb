@@ -1,25 +1,20 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
-
-# require 'capistrano/bundler'
-# require 'capistrano/rails/assets'
-# require 'capistrano/rails/migrations'
-
+require 'active_model/railtie'
+require 'active_job/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'action_view/railtie'
+require 'sprockets/railtie'
 require 'susy'
 require 'bourbon'
 # require "rails/test_unit/railtie"
 
 require 'rubygems'
 require 'closure-compiler'
-Closure::Compiler.new.compile(File.open('app/assets/javascripts/application.js', 'r'))
+#Closure::Compiler.new.compile(File.open('app/assets/javascripts/application.js', 'r'))
 ActiveSupport::Gzip.compress('app/assets/javascripts/application.js')
 
 # Require the gems listed in Gemfile, including any gems
