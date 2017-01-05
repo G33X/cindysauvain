@@ -98,11 +98,13 @@ module ApplicationHelper
 		if response
 			if Net::HTTPSuccess
 				parsed_response = JSON.parse(response.body)
-				data = parsed_response['data'][0]['sizes']
 
-				if size == 'thumb'
+				unless parsed_response['data'].nil?
+					data = parsed_response['data'][0]['sizes']
+
+					if size == 'thumb'
 					return data[0]['link']
-				else
+					else
 					if video_cover
 						if !data[3]['link_with_play_button']
 							# TODO: Make a sample video cover
@@ -117,6 +119,13 @@ module ApplicationHelper
 						else
 							return data[3]['link']
 						end
+					end
+					end
+				else
+					if I18n.locale == :en
+						return 'VimeoVideoNotAccessibleEn'
+					else
+						return 'VimeoVideoNotAccessibleFr'
 					end
 				end
 			end
