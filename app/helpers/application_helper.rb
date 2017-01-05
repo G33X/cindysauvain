@@ -86,7 +86,11 @@ module ApplicationHelper
 	end
 
 
-	def get_vimeo_thumb_url(video_id, size, video_cover = false)
+	def get_vimeo_error_url
+		(I18n.locale == :en) ? asset_path('assets/vimeo-error-en.jpg') : asset_path('assets/vimeo-error-fr.jpg')
+	end
+
+		def get_vimeo_thumb_url(video_id, size, video_cover = false)
 		require 'net/https'
 		require 'json'
 		uri = URI "https://api.vimeo.com/videos/#{video_id}/pictures?access_token=cb1da9d7b105ec28eb606eab6d4e5894"
@@ -122,11 +126,7 @@ module ApplicationHelper
 					end
 					end
 				else
-					if I18n.locale == :en
-						return 'VimeoVideoNotAccessibleEn'
-					else
-						return 'VimeoVideoNotAccessibleFr'
-					end
+					get_vimeo_error_url
 				end
 			end
 		end

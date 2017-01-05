@@ -40,8 +40,6 @@ Rails.application.routes.draw do
 		resources :privacy_policy,  only:  :index, :path => '/:locale/privacy-policy'
 	end
 
-	get '/VimeoVideoNotAccessibleEn', to: redirect('assets/vimeo-error-en.jpg')
-	get '/VimeoVideoNotAccessibleFr', to: redirect('assets/vimeo-error-fr.jpg')
 
 	# Backend website routes
 	get '/admin', to: redirect('/casein/news')
