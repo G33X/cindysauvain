@@ -87,7 +87,7 @@ module ApplicationHelper
 
 
 	def get_vimeo_error_url
-		(I18n.locale == :en) ? asset_path('assets/vimeo-error-en.jpg') : asset_path('assets/vimeo-error-fr.jpg')
+		(I18n.locale == :en) ? 'images/vimeo-error-en.jpg' : 'images/vimeo-error-fr.jpg'
 	end
 
 		def get_vimeo_thumb_url(video_id, size, video_cover = false)
