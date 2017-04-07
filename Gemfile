@@ -91,10 +91,6 @@ group :development do
 
 	# Web server
 	gem 'puma', '~> 2.11.2'
-
-	# SSL certificate generator
-	gem 'letsencrypt_plugin'
-
 end
 
 group :production, :production_local do
@@ -110,6 +106,9 @@ group :production, :production_local do
 	# Caching
 	gem 'actionpack-page_caching'
 	gem 'actionpack-action_caching'
+
+	# SSL certificate generator
+	gem 'letsencrypt_plugin'
 
 	# Web server
 	gem 'passenger', '>= 5.0.30', require: 'phusion_passenger/rack_handler'
