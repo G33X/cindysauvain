@@ -73,9 +73,6 @@ gem 'route_translator', '~> 4.0.0'
 # Mailgun
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
-# SSL certificate generator
-gem 'letsencrypt_plugin'
-
 # Livereload
 group :development do
 	gem 'guard', '~> 2.12.7', :require => false
@@ -94,6 +91,10 @@ group :development do
 
 	# Web server
 	gem 'puma', '~> 2.11.2'
+
+	# SSL certificate generator
+	gem 'letsencrypt_plugin'
+
 end
 
 group :production, :production_local do
