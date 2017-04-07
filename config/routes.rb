@@ -2,7 +2,7 @@ require 'socket'
 
 Rails.application.routes.draw do
 
-	http_host = 'http://www.cindysauvain.com'
+	http_host = 'http://cindysauvain.com'
 
 	# Redirects the main domain to his www subdomain
 	if Rails.env.production? &&
