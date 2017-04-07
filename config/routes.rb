@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 	http_host = 'http://www.cindysauvain.com'
 
 	# Redirects the main domain to his www subdomain
-	# if Rails.env.production? &&
-	# 	 Socket.gethostname != 'iMac.local'
+	if Rails.env.production? &&
+		 Socket.gethostname != 'iMac.local'
 
-		# constraints subdomain: '' do
-		# 	get '*path', to: redirect(http_host + '/%{path}')
-		# end
-	# end
+		constraints subdomain: '' do
+			get '*path', to: redirect(http_host + '/%{path}')
+		end
+	end
 
 
 	# Frontend website routes
