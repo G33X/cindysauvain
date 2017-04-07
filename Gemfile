@@ -73,6 +73,9 @@ gem 'route_translator', '~> 4.0.0'
 # Mailgun
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
+# SSL certificate generator
+gem 'letsencrypt_plugin'
+
 # Livereload
 group :development do
 	gem 'guard', '~> 2.12.7', :require => false
@@ -106,9 +109,6 @@ group :production, :production_local do
 	# Caching
 	gem 'actionpack-page_caching'
 	gem 'actionpack-action_caching'
-
-	# SSL certificate generator
-	gem 'letsencrypt_plugin'
 
 	# Web server
 	gem 'passenger', '>= 5.0.30', require: 'phusion_passenger/rack_handler'
