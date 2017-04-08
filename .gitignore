@@ -33,7 +33,7 @@ Capfile
 /config/local_env.yml
 /config/secrets.yml
 /public/assets/
-/ssl/cacert.pem
+/ssl
 .env
 
 /vendor/bundle/

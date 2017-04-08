@@ -2,16 +2,16 @@ require 'socket'
 
 Rails.application.routes.draw do
 
-	# http_host = 'http://cindysauvain.com'
+	https_host = 'https://www.cindysauvain.com'
 	#
 	# # Redirects the main domain to his www subdomain
-	# if Rails.env.production? &&
-	# 	 Socket.gethostname != 'iMac.local'
-	#
-	# 	constraints subdomain: '' do
-	# 		get '*path', to: redirect(http_host + '/%{path}')
-	# 	end
-	# end
+	if Rails.env.production? &&
+		 Socket.gethostname != 'MacBook-Pro-13.local'
+
+		constraints subdomain: '' do
+			get '*path', to: redirect(https_host + '/%{path}')
+		end
+	end
 
 
 	# Frontend website routes
