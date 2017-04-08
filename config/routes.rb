@@ -52,12 +52,10 @@ Rails.application.routes.draw do
 		resources :testimonials
 	end
 
-	if Rails.env.production? ||
-		 Rails.env.production_local?
 
-		# Mounting of Let's Encrypt plugin
-		mount LetsencryptPlugin::Engine => '/'
-	end
+	# Mounting of Let's Encrypt plugin
+	mount LetsencryptPlugin::Engine => '/'
+
 
 	# if Rails.configuration
 	# CKEditor
