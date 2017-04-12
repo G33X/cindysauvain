@@ -90,7 +90,7 @@ Rails.application.configure do
 			address:              'smtp.mailgun.org',
 			port:                 587,
 			domain:               'cindysauvain.com',
-			user_name:            '',
+			user_name:            ENV["SMTP_USER"],
 			password:             ENV["SMTP_PASS"],
 			authentication:       'plain',
 			enable_starttls_auto: true
