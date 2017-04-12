@@ -94,5 +94,6 @@ Rails.application.configure do
 			password:             ENV['SMTP_PASS'],
 			authentication:       'plain',
 			enable_starttls_auto: true
+	}
 
 end
