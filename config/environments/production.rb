@@ -91,7 +91,7 @@ Rails.application.configure do
 			port:                 587,
 			domain:               'cindysauvain.com',
 			user_name:            'postmaster@mg.cindysauvain.com',
-			password:             ENV['SMTP_PASS'],
+			password:             ENV["SMTP_PASS"],
 			authentication:       'plain',
 			enable_starttls_auto: true
 	}
