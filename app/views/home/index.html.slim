@@ -62,9 +62,9 @@
 				section.footer
 					.label #{I18n.t "news.share"}
 					.social
-						= link_to '', "https://www.facebook.com/sharer/sharer.php?app_id=1087950351220080&display=popup&u=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2F#{res.id.to_s}", target: "_blank", class: "fb", rel: "nofollow"
-						= link_to '', "https://twitter.com/intent/tweet?lang=#{I18n.locale}&text=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2F#{res.id.to_s}", target: "_blank", class: "tw", rel: "nofollow"
-						= link_to '', "https://plus.google.com/share?hl=#{I18n.locale}&url=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2F#{res.id.to_s}", target: "_blank", class: "g-plus", rel: "nofollow"
+						= link_to '', "https://www.facebook.com/sharer/sharer.php?app_id=1087950351220080&display=popup&u=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2Fnews%2F#{res.id.to_s}", target: "_blank", class: "fb", rel: "nofollow"
+						= link_to '', "https://twitter.com/intent/tweet?lang=#{I18n.locale}&text=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2Fnews%2F#{res.id.to_s}", target: "_blank", class: "tw", rel: "nofollow"
+						= link_to '', "https://plus.google.com/share?hl=#{I18n.locale}&url=https%3A%2F%2Fwww.cindysauvain.com%2F#{I18n.locale}%2Fnews%2F#{res.id.to_s}", target: "_blank", class: "g-plus", rel: "nofollow"
 
 					= link_to raw("#{I18n.t 'news.read_more'} &nbsp; &#8594;"), home_path(res.id), class: 'read-more'
 

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
 	localized do
 		resources :home,            only:  :index, :path => '/:locale'
-		resources :home,            only:  :show, :path => '/:locale/:id'
+		resources :home,            only:  :show, :path => '/:locale/news'
 		resources :agenda,          only: [:index, :show]
 		resources :about,           only:  :index
 		resources :medias,          only:  :index
