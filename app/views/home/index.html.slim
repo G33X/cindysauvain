@@ -55,9 +55,9 @@
 							- if I18n.locale == :fr
 								= image_tag res.image, alt: res.title_fr, title: res.title_fr, width: '240px', height: 'auto'
 
-					p
-						|#{res.text.html_safe if I18n.locale == :en}
-						|#{res.text_fr.html_safe if I18n.locale == :fr}
+					p class="#{'with-image' unless res.image.empty?}"
+						|#{truncate(res.text.html_safe, length: 500, escape: false) if I18n.locale == :en}
+						|#{truncate(res.text_fr.html_safe, length: 500, escape: false) if I18n.locale == :fr}
 
 				section.footer
 					.label #{I18n.t "news.share"}

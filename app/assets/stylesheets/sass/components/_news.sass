@@ -139,14 +139,16 @@ article.news
 		display: table
 
 		p
-			+span(7)
+			+span(12)
 			display: inline-block
-
 			vertical-align: top
 			color: $general-text-color
 			font-weight: 100
 			line-height: 1.5em
 			text-align: justify
+
+			&.with-image
+				+span(7)
 
 			&:first-letter
 				content: ""
