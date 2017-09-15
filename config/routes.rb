@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 	get '/:locale/itinerary/archive'  =>  'agenda#archive', as: :agenda_archive_en, locale: 'en'
 	get '/:locale/agenda/archive'     =>  'agenda#archive', as: :agenda_archive_fr, locale: 'fr'
 
+	get '/:locale/medias/download'    =>  'medias#download'
+
 	localized do
 		resources :home,            only:  :index, :path => '/:locale'
 		resources :home,            only:  :show, :path => '/:locale/news'
